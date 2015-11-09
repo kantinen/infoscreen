@@ -9,5 +9,5 @@ xdotool mousemove 2000 2000
 # be running - if so, kill it before we start a new one.
 tmux kill-session -t kantinfo
 
-dbus-launch tmux new-session -s kantinfo -d './kantinfo/kantinfo.py infoscreen/content; bash'
+dbus-launch tmux new-session -s kantinfo -d 'cd kantinfo; ./kantinfo.py ../infoscreen/content; bash'
 exec matchbox-window-manager -use_titlebar no
