@@ -11,6 +11,8 @@ Dette er repoet for kantinens `infoscreen`-maskine.  Den kører softwaren
 Se også vores repo for kantinens `cokepc`-maskine:
 <https://github.com/datalogisk-kantineforening/cokepc>.
 
+Maskinen har en opløsning på 1920x1080, så design efter det.
+
 
 Opsætning
 ---------
