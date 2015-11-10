@@ -47,3 +47,18 @@ andre baggrundsprocesser og deslige, så start dem her.
 Et cronjob (`sudo crontab -e`) sørger for at genstarte maskinen hver morgen
 klokken 6.  Dette er for at sikre at der aldrig sniger sig noget ind i
 opsætningen der ikke kan overleve en genstart.
+
+
+Afhængigheder
+-------------
+
+Vores `xinitrc` afhænger af disse programmer:
+
+  + `matchbox`: Simpel window manager
+  + `xdotool`: Musemarkør-skjuler (mm.)
+  + `tmux`: Ligesom screen, men fra BSD
+  
+For at køre vores IRC-viser-slide kræves også:
+
+  + `sic`: Simpel IRC-klient
+  + `toilet`: Tekst-formatterings-program
