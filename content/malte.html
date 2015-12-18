@@ -3,23 +3,37 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style>
-body {
-	background: #000;
-}
 h1, h2 {
-	color: #fff;
 	margin: 0 auto;
 	text-align: center;
 }
 h1 {
-	margin: 25px 0;
-	font-size: 70pt;
+	margin: 60px 0;
+	font-size: 100pt;
 	text-transform: uppercase;
 }
 h2 {
 	font-size: 50pt;
 }
 </style>
+<script>
+function randomColour() {
+	return 'rgb(' + Math.floor(Math.random()*255) + ',' + Math.floor(Math.random()*255) + ',' + Math.floor(Math.random()*255) + ')';
+}
+
+function moreColours () {
+	var el = document.getElementsByTagName('body')[0];
+	el.style.background = randomColour();
+	el.style.color = randomColour();
+	el.style.borderTopColor = randomColour();
+	el.style.borderBottomColor = randomColour();
+	el.style.borderLeftColor = randomColour();
+	el.style.borderRightColor = randomColour();
+	t = setTimeout('moreColours();', 50);
+}
+
+window.onload = moreColours;
+</script>
 </head>
 <body>
 <h1>Skål med Malte</h1>
