@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<script>
+var e = null;
+var f = function() {
+	var d = new Date;
+	var y = new Date(2016, 0);
+	var l = y.getTime() - d.getTime();
+	document.getElementById("ned").innerHTML = l;
+	e = setTimeout("f()", 1);
+}
+window.onload = function() {
+	f();
+}
+</script>
+<style>
+#ned {
+	font-family: "comic sans", sans-serif;
+	text-align: center;
+	font-size: 275pt;
+	margin-top: 200px;
+}
+</style>
+</head>
+<body>
+<div id="ned"></div>
+</body>
+</html>
