@@ -1,0 +1,80 @@
+<?doctype>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+      h2 { padding-top: 48pt; margin-top: 2000px }
+      body {
+      font-family: sans-serif;
+      text-align: center;
+      font-size: 48pt;
+      padding: 48pt;
+      background-color: #000;
+      color: #fff;
+      }
+      .hiperfitlink { padding-top: 48pt; display:block }
+    </style>
+    <script>
+      var timeout_seconds = 3;
+      var topics = [ "cuda-futhark", "memory-futhark", "map-scan-futhark", "shape-annotations-futhark", "openmp-futhark" ];
+      var f = function() {
+        /* Så er det nu! */
+        i = Math.floor(Math.random() * topics.length)
+        window.scrollTo(0, document.getElementById(topics[i]).offsetTop);
+      }
+      window.onload = function() {
+        setTimeout("f()", timeout_seconds * 1000);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Skal du lave bachelorprojekt i blok 3/4?</h1>
+
+    Hvad med at...
+
+    <h2 id="cuda-futhark">Generere CUDA-kode til dit NVIDIA-grafikkort!</h2>
+
+    Se <em>CUDA Backend for Futhark</em> på
+
+    <tt class="hiperfitlink">hiperfit.dk/studentprojects.html</tt>
+
+    <h2 id="memory-futhark">Implementere registerallokation på array-niveau!</h2>
+
+    Se <em>Compile-time Memory Allocation in Futhark</em>
+    på
+
+    <tt class="hiperfitlink">hiperfit.dk/studentprojects.html</tt>.
+
+    <h2 id="map-scan-futhark">Implementere en
+    højniveau-oversætteroptimering med et rigtig sejt navn!</h2>
+
+    Se <em>Map-Scan Loop Fusion in Futhark</em>
+    på
+
+    <h2 id="shape-annotations-futhark">Designe
+    programmeringssprogs-features der giver oversætteren nyttige
+    optimeringsråd!</h2>
+
+    Se <em>Adding Function-Level Shape/Invariant Annotatations to Futhark</em>
+    på
+
+    <tt class="hiperfitlink">hiperfit.dk/studentprojects.html</tt>
+
+    <h2 id="openmp-futhark">Oversætte et højniveau-funktionssprog til
+      knaldhurtig flerkerne-kode!</h2>
+
+    Se <em>OpenMP Backend for a Data-Parallel Functional Programming Language</em>
+    på
+
+    <tt class="hiperfitlink">hiperfit.dk/studentprojects.html</tt>
+
+    <h2 id="funky-haskell">Kode noget virkelig funky Haskell!</h2>
+
+    Se <em>Optimization of a Haskell Automatic Differentiation Library</em>
+    på
+
+    <tt class="hiperfitlink">hiperfit.dk/studentprojects.html</tt>
+
+    <h2>Et projekt der slet ikke findes!</h2>
+  </body>
+</html>
