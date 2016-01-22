@@ -1,7 +1,7 @@
 #!/bin/sh
 
 xsetroot -solid white
-export PATH=/home/odroid/bin:$PATH
+export PATH=/home/odroid/bin:/usr/local/bin:$PATH
 xdotool mousemove 2000 2000
 (sleep 5; infoscreen/background/irc.sh) &
 
