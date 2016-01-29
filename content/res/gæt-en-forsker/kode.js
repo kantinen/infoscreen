@@ -1,8 +1,8 @@
 function build_page() {
     var seconds_wait = 5;
     var pixelate_frac = 0.02;
-    var unpixelate_factor = 1.04;
-    var unpixelate_time_step = 20;
+    var unpixelate_factor = 1.1;
+    var unpixelate_time_step = 50;
     var n_question_marks = 10;
 
     var wrapper = d3.select('#wrapper');
