@@ -1,0 +1,63 @@
+body {
+    font-family: Gentium;
+    font-size: 300%;
+    overflow: hidden;
+}
+
+h1, p {
+    margin: 0;
+}
+
+#wrapper {
+    text-align: center;
+}
+
+.background {
+    position: absolute;
+    font-size: 150px;
+    font-weight: bold;
+    text-shadow: 4px 4px #000000;
+    animation: background 1s infinite linear;
+    -webkit-animation: background 1s infinite;
+}
+
+@keyframes background {
+  0% {
+    transform: skewX(0deg);
+  }
+  25% {
+    transform: skewX(-30deg);
+  }
+  50% {
+    transform: skewX(0deg);
+  }
+  75% {
+    transform: skewX(30deg);
+  }
+  100% {
+    transform: skewX(0deg);
+  }
+}
+
+
+.counter {
+    font-weight: bold;
+    font-size: 150%;
+    display: inline-block;
+    width: 80px;
+    text-align: center;
+}
+
+.bottom {
+    font-size: 150%;
+}
+
+canvas {
+    margin-top: 20px;
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -o-crisp-edges;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+}
