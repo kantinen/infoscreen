@@ -1,6 +1,6 @@
 function build_page() {
     var seconds_wait = 5;
-    var pixelate_frac = 0.02;
+    var pixelate_frac = 0.005;
     var unpixelate_factor = 1.1;
     var unpixelate_time_step = 50;
     var n_question_marks = 10;
@@ -50,26 +50,27 @@ function build_page() {
     text_top.append('span')
         .text(' sekunder');
 
-    var researchers = [ 'Aasa Feragen',
-                        'Andrzej Filinski',
-                        'Christian Igel',
-                        'Cosmin Eugen Oancea',
-                        'Fritz Henglein',
-                        'Jørgen Bansler',
-                        'Jyrki Katajainen',
-                        'Kasper Hornbæk',
-                        'Ken Friis Larsen',
-                        'Kenny Erleben',
-                        'Marcos António Vaz Salles',
-                        'Martin Elsman',
-                        'Mikkel Rønne Jakobsen',
-                        'Mikkel Thorup',
-                        'Pernille Bjørn',
-                        'Sebastian Boring',
-                        'Stephen Alstrup',
-                        'Sune Darkner',
-                        'Torben Ægidius Mogensen'
-                      ];
+    var researchers = [
+        'Aasa Feragen',
+        'Andrzej Filinski',
+        'Christian Igel',
+        'Cosmin Eugen Oancea',
+        'Fritz Henglein',
+        'Jørgen Bansler',
+        'Jyrki Katajainen',
+        'Kasper Hornbæk',
+        'Ken Friis Larsen',
+        'Kenny Erleben',
+        'Marcos António Vaz Salles',
+        'Martin Elsman',
+        'Mikkel Rønne Jakobsen',
+        'Mikkel Thorup',
+        'Pernille Bjørn',
+        'Sebastian Boring',
+        'Stephen Alstrup',
+        'Sune Darkner',
+        'Torben Ægidius Mogensen'
+    ];
     var researcher = researchers[Math.floor(Math.random() * researchers.length)];
 
     var img = new Image();
@@ -142,7 +143,6 @@ function build_page() {
 
             if (seconds_wait <= 0) {
                 setTimeout(unpixelate_portrait, unpixelate_time_step);
-                pixelate_portrait(1);
             }
             else {
                 setTimeout(countDown, 1000);
