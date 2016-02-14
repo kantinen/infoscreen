@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <title>The infoscreen</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+body {
+    overflow: hidden;
+    margin: 0;
+    background-image: url('res/infoscreen/base.png');
+}
+
+#lightsabers {
+    position: absolute;
+    left: 717px;
+    top: 244px;
+    width: 312px;
+    height: 242px;
+    background-image: url('res/infoscreen/light0.png');
+    -webkit-animation: fade 2s infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes fade {
+    0% {
+        background-image: url('res/infoscreen/light0.png');
+    }
+    50% {
+        background-image: url('res/infoscreen/light1.png');
+    }
+    100% {
+        background-image: url('res/infoscreen/light0.png');
+    }
+}
+    </style>
+  </head>
+  <body>
+    <div id="lightsabers"></div>
+  </body>
+</html>
