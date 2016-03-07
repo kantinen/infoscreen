@@ -54,6 +54,7 @@ ircloop() {
 set_breaking_news() {
     news=$1
     echo "$news" > $breaking_news
+    echo 'goto breaking_news.sh' | $HOME/kantinfo/kantinfo-order.py
 }
 
 process_line() {
