@@ -56,6 +56,7 @@ function build_page() {
         'Christian Igel',
         'Cosmin Eugen Oancea',
         'Fritz Henglein',
+        'Jakob Grue Simonsen',
         'Jørgen Bansler',
         'Jyrki Katajainen',
         'Kasper Hornbæk',
