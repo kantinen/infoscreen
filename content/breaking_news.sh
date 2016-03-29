@@ -3,7 +3,7 @@
 import time
 import os.path
 import subprocess
-import cgi
+import html
 
 def show():
     basedir = os.path.dirname(__file__)
@@ -13,7 +13,7 @@ def show():
         return
     
     with open(breaking_file) as f:
-        breaking_news = cgi.escape( f.read().strip() )
+        breaking_news = html.escape( f.read().strip() )
     
     with open(os.path.join(basedir, 'res/breaking_news_skabelon.html')) as f:
         d = f.read()
