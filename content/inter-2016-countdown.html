@@ -47,7 +47,7 @@ blink {
 
         return {
           days: diff.getDate() - 1, // fordi vi starter på 1
-          hours: diff.getHours() + 1, // tidszone (+1 fordi sommertid (?))
+          hours: diff.getHours() , // tidszone (+1 fordi sommertid (?)) Eller ikke? har fjeret det
           minutes: diff.getMinutes()
         };
       }
