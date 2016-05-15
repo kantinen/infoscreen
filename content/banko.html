@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script>
+        var socket = new WebSocket('ws://infoscreen.coq.dk/banko/ws');
+        socket.onmessage = function (event) {
+            $('#bankotal').text(event.data);
+        };
+        socket.onopen = function (event) {
+            socket.send('HELO');
+        };
+    </script>
+    <style>
+    body {
+        background-image: url('res/bankobaggrund.jpg');
+        font-family: Gentium;
+        font-size: 80px;
+    }
+
+    p {
+        margin: 0;
+        position: absolute;
+        visibility: hidden;
+        -webkit-animation-timing-function: linear;
+    }
+
+@-webkit-keyframes pfun {
+  0% {
+      -webkit-transform: skewy(0deg);
+  }
+  25% {
+      -webkit-transform: skewy(-1deg);
+  }
+  50% {
+      -webkit-transform: skewy(0deg);
+  }
+  75% {
+      -webkit-transform: skewy(1deg);
+  }
+  100% {
+      -webkit-transform: skewy(0deg);
+  }
+}
+
+    #besøg {
+        top: 1%;
+        left: 4%;
+        color: #bbbbbb;
+        background-color: blue;
+        font-weight: bold;
+        padding: 20px;
+    }
+
+    #besøg a {
+        color: #eeeeee;
+    }
+
+    #eje {
+        top: 60%;
+        left: 40%;
+        background-color: #ff34de;
+        font-style: italic;
+        font-weight: bold;
+        padding: 20px;
+        -webkit-animation: pfun 0.1s infinite;
+    }
+
+    #trækkes {
+        top: 16%;
+        left: 10%;
+        background-color: #34ff57;
+        padding: 20px;
+        -webkit-animation: pfun 0.1s infinite;
+    }
+
+    #blev {
+        top: 26%;
+        left: 25%;
+        background-color: #84fff7;
+        padding: 20px;
+        -webkit-animation: pfun 0.1s infinite;
+    }
+
+    #bankotal {
+        top: 22%;
+        left: 48%;
+        background-color: white;
+        color: red;
+        padding: 20px;
+        font-size: 300%;
+        font-weight: bold;
+        -webkit-animation: pfun 0.1s infinite;
+    }
+    </style>
+  </head>
+  <body>
+  <p id="besøg">
+    Spil banko på <a href="http://infoscreen.coq.dk/banko">http://infoscreen.coq.dk/banko</a>!
+  </p>
+
+    <p id="eje">Så er der snart banko!</p>
+
+    <p id="trækkes">Tallet trækkes...</p>
+
+    <p id="blev">DET BLEV:</p>
+    
+    <p id="bankotal"></p>
+
+    <script type="text/javascript">
+    window.setTimeout(function() { $('#besøg').css('visibility', 'visible'); }, 0)
+    window.setTimeout(function() { $('#eje').css('visibility', 'visible'); }, 1000)
+    window.setTimeout(function() { $('#trækkes').css('visibility', 'visible'); }, 2000)
+    window.setTimeout(function() { $('#blev').css('visibility', 'visible'); }, 3000)
+    window.setTimeout(function() {
+        var size = 300;
+        $('#bankotal').css('visibility', 'visible');
+        window.setInterval(function() {
+            size += 20;
+            $('#bankotal').css('font-size', size + '%');
+        }, 1000)
+    }, 4000)
+    </script>
+  </body>
+</html>
