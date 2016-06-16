@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <head>
+    <title>UCPH.DK</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+body {
+  overflow: hidden;
+  margin: 0;
+}
+
+h1, h2, h3 {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+h1 {
+  font-size: 100px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 70px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 50px;
+  text-align: center;
+}
+
+ul {
+  font-size: 70px;
+}
+
+li {
+  margin-left: 50px;
+  float: left;
+  list-style: none;
+  background-color: silver;
+}
+
+#panda {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 256px;
+  height: 256px;
+  margin-left: -128px;
+  margin-top: -128px;
+  z-index: -1;
+  -webkit-animation: panda 4s infinite;
+}
+
+@-webkit-keyframes panda {
+  0% {
+    -webkit-transform: rotate(0deg) scale(1, 1);
+  }
+  50% {
+    -webkit-transform: rotate(55deg) scale(15, 15);
+  }
+  100% {
+    -webkit-transform: rotate(720deg) scale(1, 1);
+  }
+}
+    </style>
+  </head>
+  <body>
+
+    <h1>
+      <a href="http://ucph.dk/">
+        UCPH.DK
+      </a>
+    </h1>
+    
+    <h2>
+      Danmarks bedste DIKU-portal!
+    </h2>
+
+    <hr>
+
+    <h3>
+      Bidrag med indhold og bliv glad!
+    </h3>
+
+    <h3>
+      <a href="http://ucph.dk">
+        UCPH.DK
+      </a>
+      har alle teknologierne!
+    </h3>
+
+    <ul>
+      <li>INFORMATION</li>
+      <li>IRC-CHAT</li>
+      <li>KALENDER</li>
+      <li>ORDBOG</li>
+    </ul>
+
+    <img src="res/pandahoved-cirkel.png"
+         alt="Panda siger velkommen" title="Panda siger velkommen"
+         id="panda" />
+
+  </body>
+</html>
