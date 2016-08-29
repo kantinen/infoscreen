@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Internet Relay Chat</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+body {
+  overflow: hidden;
+  margin: 0;
+}
+
+#kylle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: kylle 4s infinite;
+  -webkit-animation: kylle 4s infinite;
+}
+
+@keyframes kylle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(35deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@-webkit-keyframes kylle {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(35deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+  }
+}
+
+#tiger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  animation: tiger 2s infinite;
+  -webkit-animation: tiger 2s infinite;
+}
+
+
+@keyframes tiger {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-35deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@-webkit-keyframes tiger {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(-35deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+  }
+}
+
+div {
+  width: 70%;
+  position: absolute;
+  top: 450px;
+  left: 15%;
+  background-color: rgba(255, 255, 255, .8);
+  padding: 10px;
+  text-align: center;
+  font-family: Gentium;
+  border: 5px black solid;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 100px;
+}
+
+p {
+  margin: 0;
+  font-size: 100px;
+}
+
+a:link, a:visited {
+  color: blue;
+  text-decoration: none;
+  font-weight: bold;
+}
+</style>
+  </head>
+  <body>
+    <img src="res/irc-maskotter/kylle.jpg" id="kylle" alt="Kylle">
+    <img src="res/irc-maskotter/tiger.jpg" id="tiger" alt="Tiger">
+    <div>
+      <h1>Kom og chat med dine medstuderende!</h1>
+      <p>Det sker på #diku på IRC!</p>
+      <p>Læs mere på <a href="http://ucph.dk/">UCPH.DK</a>.</p>
+    </div>
+  </body>
+</html>
