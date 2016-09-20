@@ -1,133 +1,80 @@
 <!doctype html>
 <html>
   <head>
-    <title>FUTURAMA</title>
+    <title>Emacs</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <style type="text/css">
 body {
   overflow: hidden;
-  margin: 0;
+  margin: 100px;
   font-family: serif;
-  text-align: center;
 }
 
 h1 {
+  text-align: center;
   font-size: 140px;
-}
-
-h2 {
-  font-size: 70px;
-}
-
-p {
-  font-size: 40px;
-}
-
-h1, h2, h3, p {
-  background-color: rgba(255, 255, 255, 0.5);
   border-style: solid;
   border-color: black;
-  border-width: 1px 0;
+  border-width: 10px 0;
+  -webkit-animation: header 1s infinite;
+  background-color: #ffffff;
 }
 
-#fry {  
-  position: absolute;
-  z-index: -1;
-  -webkit-animation: fry 5s infinite;
-}
-
-@-webkit-keyframes fry {
+@-webkit-keyframes header {
   0% {
-    top: 0;
-    left: 0;
-    -webkit-transform: rotate(0deg);
-  }
-  25% {
-    top: 0;
-    left: calc(100% - 575px);
-    -webkit-transform: rotate(360deg);
-  }
-  30% {
-    -webkit-transform: rotate(400deg);
-  }
-  35% {
-    -webkit-transform: rotate(320deg);
-  }
-  40% {
-    -webkit-transform: rotate(400deg);
-  }
-  45% {
-    -webkit-transform: rotate(320deg);
+    -webkit-transform: rotate(0deg) scale(1, 1);
   }
   50% {
-    top: calc(100% - 818px);
-    left: calc(50% - 288px);
-    -webkit-transform: rotate(360deg);
+    -webkit-transform: rotate(10deg) scale(1.2, 1.2);
   }
   100% {
-    top: 0;
-    left: 0;
-    -webkit-transform: rotate(-720deg);
+    -webkit-transform: rotate(0deg) scale(1, 1);
   }
 }
 
-#hermes {  
-  left: calc(50% - 353px);
-  position: absolute;
-  z-index: -2;
-  -webkit-animation: hermes 3s infinite;
+
+p {
+  font-size: 60px;
 }
 
-@-webkit-keyframes hermes {
-  0% {
-    top: calc(100% - 540px);
-    margin-left: 0px;
-  }
-  10% {
-    margin-left: 100px;
-  }
-  20% {
-    margin-left: -100px;
-  }
-  30% {
-    margin-left: 100px;
-  }
-  40% {
-    margin-left: -100px;
-  }
-  50% {
-    top: 0;
-    margin-left: 0px;
-  }
-  60% {
-    margin-left: 200px;
-  }
-  70% {
-    margin-left: -200px;
-  }
-  80% {
-    margin-left: 200px;
-  }
-  90% {
-    margin-left: -200px;
-  }
-  100% {
-    top: calc(100% - 540px);
-    margin-left: 0px;
-  }
+ul {
+  font-size: 30px;
 }
     </style>
   </head>
   <body>
-    <h1 style="color: red; margin-bottom: 500px;">Husk at bruge Emacs</h1>
-    <h2 style="color: green">Emacs er en udmærket editor.</h2>
-    <h2 style="color: blue">Den har også en IRC-klient.</h2>
+    <h1>NY UDGAVE AF EMACS!</h1>
 
-    <img src="res/emacs.png"
-         alt="emacs"
-         id="fry">
-    <img src="res/rms2014.jpg"
-         alt="Richard"
-         id="hermes">
+    <p>
+      Emacs 25.1 har mange nye funktionaliteter, heriblandt:
+    </p>
+
+    <ul>
+      <li>
+        Emacs can now load shared/dynamic libraries (modules). A dynamic Emacs
+        module is a shared library that provides additional functionality for
+        use in Emacs Lisp programs, just like a package written in Emacs Lisp
+        would.
+      </li>
+      <li>
+        Experimental support for Cairo drawing.
+      </li>
+      <li>
+        Enhanced network security (TLS/SSL certificate validity and the like)
+        via the new Network Security Manager (NSM).
+      </li>
+      <li>
+        New minor mode 'electric-quote-mode' for using curved quotes as you
+        type.
+      </li>
+      <li>
+        Character folding support in isearch.el.
+      </li>
+      <li>
+        New and improved facilities for inserting Unicode characters: C-x 8 now
+        has shorthands for several chars, such as U+2010 (HYPHEN), U+2011
+        (NON-BREAKING HYPHEN), and U+2012 (FIGURE DASH).
+      </li>
+    </ul>
   </body>
 </html>
