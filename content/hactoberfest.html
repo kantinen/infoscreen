@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Emacs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+    <style type="text/css">
+    html, body
+    {
+        height: 100%;
+        margin:100px;
+        padding:0;
+        overflow: hidden;
+    }
+
+    div {
+        position:relative;
+        height: 100%;
+        width:100%;
+    }
+
+    div img {
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin:auto;
+    }
+
+h4 {
+  text-align: center;
+  font-size: 100px;
+  background-color: #ffffff;
+}
+h2{
+  text-align: left;
+  font-size: 100px;
+  background-color: #ffffff;
+}
+h2.to{
+  text-align: right;
+  font-size: 100px;
+  background-color: #ffffff;
+}
+h2.hack{
+  text-align: center;
+  font-size: 120px;
+  background-color: #ffffff;
+}
+h3{
+  font-size: 40px;
+}
+p {
+  font-size: 80px;
+}
+
+ul {
+  font-size: 30px;
+}
+img.resize1{
+  align-items: center;
+    width: 50%; /* you can use % */
+    height: auto;
+}
+img.resize2{
+  align-items: center;
+    width: 23%; /* you can use % */
+    height: auto;
+    position:relative;
+    margin:auto;
+}
+.hidden {
+    display: none;
+}
+    </style>
+  </head>
+  <body>
+    <div id="jack1" class="hidden"><img class="resize1" src="../content/res/pumpkin.svg"><h2>Join</h2></div>
+    <div id="jack2" class="hidden"><img class="resize1" src="../content/res/pumpkin.svg"><h2 class="to">Us</h2></div>
+    <div id="jack3" class="hidden"><img class="resize1" src="../content/res/pumpkin.svg"><h2 class="hack">For</h2></div>
+   <div id="content" class="hidden">
+    <p><h4 id="block">Hacktoberfest!</h4><p>
+
+     <h3 id="subtitle">
+       Presented by Digital Ocean and Github
+     </h3>
+
+     <ul>
+       <li id="b1">
+         Submit your open-source project: Apply the label "Hacktoberfest" to issues in your GitHub-hosted project that are ready for new contributors to work on.
+       </li>
+       <li id="b2">
+         Contribute to other open-source projects: Submit four pull requests to win a free T-shirt!
+       </li>
+       <li>
+         Hacktoberfest is open to everyone in our global community!
+       </li>
+       <li id="b3">
+         Pull requests can be made in any GitHub-hosted repositories/projects.
+       </li>
+       <li id="b4">
+         You can sign up anytime in October.
+       </li>
+       <li id="b5">
+         https://hacktoberfest.digitalocean.com/
+       </li>
+     </ul>
+
+     <img id="jack11" class="resize2 hidden" src="../content/res/pumpkin.svg">
+     <img id="jack12" class="resize2 hidden" src="../content/res/pumpkin.svg">
+     <img id="jack13" class="resize2 hidden" src="../content/res/pumpkin.svg">
+     <img id="jack14" class="resize2 hidden" src="../content/res/pumpkin.svg">
+   </div>
+  </body>
+  <script>
+  $(document).ready( function () {
+
+      $(document).delay(1000).queue( function (n) { $('#jack1').removeClass('hidden').addClass('animated bounceInLeft'); n(); } )
+      .delay(2000).queue( function (n) { $('#jack1').removeClass('bounceInLeft').addClass('hidden'); n(); } )
+      .delay(1000).queue( function (n) { $('#jack2').removeClass('hidden').addClass('animated bounceInLeft'); n(); } )
+      .delay(2000).queue( function (n) { $('#jack2').removeClass('bounceInLeft').addClass('hidden'); n(); } )
+      .delay(1000).queue( function (n) { $('#jack3').removeClass('hidden').addClass('animated bounceInLeft'); n(); } )
+      .delay(2000).queue( function (n) { $('#jack3').removeClass('bounceInLeft').addClass('hidden'); n(); } )
+      .delay(1000).queue( function (n) { $('#content').removeClass('hidden').addClass('animated bounceInLeft'); n(); } )
+      .delay(2000).queue( function (n) { $('#block').animate({ color: "#B0581D" }, 1000); n(); } )
+      .delay(2000).queue( function (n) { $('#jack11').removeClass('hidden').addClass('animated fadeIn'); n(); } )
+      .delay(2000).queue( function (n) { $('#block').animate({ color: "#3A3937" }, 1000); n(); } )
+      .delay(2000).queue( function (n) { $('#jack12').removeClass('hidden').addClass('animated fadeIn'); n(); } )
+      .delay(2000).queue( function (n) { $('#block').animate({ color: "#000000" }, 1000); n(); } )
+      .delay(2000).queue( function (n) { $('#jack13').removeClass('hidden').addClass('animated fadeIn'); n(); } )
+      .delay(2000).queue( function (n) { $('#block').animate({ color: "#B0581D" }, 1000); n(); } )
+      .delay(2000).queue( function (n) { $('#jack14').removeClass('hidden').addClass('animated fadeIn'); n(); } )
+      .delay(1000).queue( function (n) { $('#block').animate({ color: "#3A3937" }, 1000); n(); } )
+      .delay(1000).queue( function (n) { $('#block').animate({ color: "#000000" }, 1000); n(); } )
+      .delay(2000).queue( function (n) { $('#b1').animate({ color: "#B0581D" }, 1000); n(); } )
+      .delay(2000).queue( function (n) { $('#jack11').removeClass('fadeIn').addClass('animated rubberband'); n(); } )
+      .delay(2000).queue( function (n) { $('#b1').animate({ color: "#000000" }, 1000); n(); } )
+      .delay(2000).queue( function (n) { $('#b2').animate({ color: "#B0581D" }, 1000); n(); } )
+      .delay(2000).queue( function (n) { $('#jack13').removeClass('fadeIn').addClass('animated rubberband'); n(); } )
+      .delay(2000).queue( function (n) { $('#b2').animate({ color: "#000000" }, 1000); n(); } )
+      .delay(2000).queue( function (n) { $('#b3').animate({ color: "#B0581D" }, 1000); n(); } )
+      .delay(2000).queue( function (n) { $('#jack12').removeClass('fadeIn').addClass('animated rubberband'); n(); } )
+      .delay(2000).queue( function (n) { $('#b3').animate({ color: "#000000" }, 1000); n(); } )
+      .delay(2000).queue( function (n) { $('#b4').animate({ color: "#B0581D" }, 1000); n(); } )
+      .delay(2000).queue( function (n) { $('#jack14').removeClass('fadeIn').addClass('animated rubberband'); n(); } )
+      .delay(2000).queue( function (n) { $('#b4').animate({ color: "#000000" }, 1000); n(); } )
+      .delay(2000).queue( function (n) { $('#b5').animate({ color: "#B0581D" }, 1000); n(); } )
+      .delay(2000).queue( function (n) { $('#b5').animate({ color: "#000000" }, 1000); n(); } )
+      .delay(1000).queue( function (n) { $('#block').animate({ color: "#B0581D" }, 1000); n(); } )
+      .delay(1000).queue( function (n) { $('#block').animate({ color: "#3A3937" }, 1000); n(); } )
+      .delay(1000).queue( function (n) { $('#block').animate({ color: "#000000" }, 1000); n(); } )
+      ;
+
+  });
+  </script>
+</html>
