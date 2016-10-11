@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Dut dut</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+    <style type="text/css">
+    html, body
+    {
+        height: 100%;
+        margin:100px;
+        padding:0;
+        overflow: hidden;
+    }
+
+    div {
+        position:relative;
+        height: 100%;
+        width:100%;
+    }
+
+    div img {
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin:auto;
+    }
+
+h4 {
+  text-align: center;
+  font-size: 100px;
+  background-color: #ffffff;
+}
+h2{
+  text-align: left;
+  font-size: 100px;
+  background-color: #ffffff;
+}
+h2.to{
+  text-align: right;
+  font-size: 100px;
+  background-color: #ffffff;
+}
+h2.hack{
+  text-align: center;
+  font-size: 120px;
+  background-color: #ffffff;
+}
+h3{
+  font-size: 40px;
+}
+
+ul {
+  font-size: 30px;
+}
+img.resize1{
+  align-items: center;
+    width: 50%; /* you can use % */
+    height: auto;
+}
+img.resize2{
+  align-items: center;
+    width: 23%; /* you can use % */
+    height: auto;
+    position:relative;
+    margin:auto;
+}
+.hidden {
+    display: none;
+}
+     .centered {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         background: yellow;
+     }
+
+     #tekst {
+         text-align: center;
+         margin: 0px auto;
+         display: block;
+         height: 700px;
+         font-family: Comic Sans MS;
+         font-size: 10em;
+     }
+     .swing {
+       animation: 3s ease 0s normal none infinite swing;
+       transform-origin: center top;
+     }
+
+     img {
+       transform: scale(2,2);
+       animation: 3s ease 0s normal none infinite flag;
+       transform-origin: center top;
+     }
+
+     .kaj {
+       animation: 1s 0s linear infinite kaj;
+       transform-origin: 50% 50%;
+       position: absolute;
+       z-index: 99;
+       top: 250px;
+       left: 400px;
+         height: 30%;
+     }
+
+     @keyframes swing {
+         0% {
+             transform: rotate(15deg);
+         }
+         50% {
+             transform: rotate(-15deg);
+         }
+         100%{
+             transform: rotate(15deg);
+         }
+     }
+
+     @keyframes kaj {
+         0% {
+             transform: rotate(0deg);
+         }
+         50% {
+             transform: rotate(180deg);
+         }
+         100%{
+             transform: rotate(360deg);
+         }
+     }
+
+     @keyframes flag {
+         0% {
+             transform: scale(2.50, 2.75);
+         }
+         25% {
+             transform: scale(1,1);
+         }
+         50% {
+             transform: scale(2.50, 2.75);
+         }
+         75% {
+             transform: scale(1,1);
+         }
+         100%{
+             transform: scale(2.50, 2.75);
+         }
+     }
+
+    </style>
+  </head>
+  <body>
+  <img class="kaj" src="res/kajkager.jpg"/>
+  <div class="centered">
+      <div class="swing" id="flagvenstre">
+          <img src="res/dannebrog.png">
+      </div>
+      <div id="tekst">
+      <p>
+      Eric Zou
+      </p>
+      <p>32 år!</p>
+      <p>Tillykke, tillykke</p>
+      </div>
+      <div class="swing" id="flaghoejre">
+          <img src="res/dannebrog.png">
+      </div>
+  </div>
+  <audio id="trumpet" src="res/trumpet.ogg" type="audio/ogg">Your browser does not support the &#60;audio&#62; element.</audio>    
+  </body>
+  <script>
+   $( document ).ready(function() {
+       $('#trumpet').get(0).play();
+   });
+  </script>
+</html>
