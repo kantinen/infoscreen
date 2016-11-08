@@ -2,6 +2,18 @@
 <html>
 <head>
   <style>
+  @keyframes blink {
+    50% {
+      opacity: 0.0;
+    }
+  }
+
+  @-webkit-keyframes blink {
+    50% {
+      opacity: 0.0;
+    }
+  }
+
     #img {
       width: 90%;
       height: auto;
@@ -22,6 +34,8 @@
       font-weight: bolder;
       font-style: italic;
       font-family: "Comic Sans MS", cursive, sans-serif;
+      animation: blink 1s step-start 0s infinite;
+      -webkit-animation: blink 1s step-start 0s infinite;
     }
   </style>
 </head>
