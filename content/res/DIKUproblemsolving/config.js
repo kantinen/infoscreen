@@ -1,0 +1,1 @@
+IDRViewer.config = {"pagecount":1,"title":"EU2016-Lobby Day Template-NEW","author":"","fileName":"DIKU_Problem_Solving_Event.pdf","bounds":[[974,1237]],"bookmarks":[],"thumbnailType":"jpg","pageType":"svg","pageLabels":[]};
