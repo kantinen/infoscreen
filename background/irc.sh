@@ -63,15 +63,15 @@ set_breaking_news() {
 
 process_line() {
     line=$1
-    if echo "$line" | egrep -q '<[^>]+> '$name': hjælp'; then
+    if echo "$line" | egrep -q '<[^>]+> '$name'[:,] hjælp'; then
         echo "Jeg forstår følgende kommandoer:"
         echo "  breaking: <besked>"
         echo "  vis IRC"
-    elif echo "$line" | egrep -q '<[^>]+> '$name': breaking: '; then
+    elif echo "$line" | egrep -q '<[^>]+> '$name'[:,] breaking: '; then
         news=$(echo "$line" | sed 's/.*breaking: //')
         set_breaking_news "$news"
         echo "Ryd forsiden!  $news"
-    elif echo "$line" | egrep -qi '<[^>]+> '$name': vis irc'; then
+    elif echo "$line" | egrep -qi '<[^>]+> '$name'[:,] vis irc'; then
         echo "Jeps, nu kan alle følge med i samtalen!"
         goto_slide irc.terminal
     fi
