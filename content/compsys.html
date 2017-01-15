@@ -35,6 +35,7 @@
         </style>
         <script>
          var HANDOUT = new Date(2017, 0, 15, 9, 0);
+         var GOOD_STUDENT = new Date(2017, 0, 16, 5, 0);
          var DEADLINE = new Date(2017, 0, 19, 16, 0);
          showTime();
 
@@ -50,6 +51,20 @@
                  hours: diff.getHours() + 1, // tidszone (+1 fordi sommertid (?))
                  minutes: diff.getMinutes()
              };
+         }
+
+         function goodStudent() {
+             var diff = new Date(GOOD_STUDENT.getTime() - localTimeNow());
+
+             if (diff.getHours() + 1 >= 0) {
+                 return "Den gode studerende er færdig om ".concat(
+                     diff.getHours() + 1,
+                     " timer. Hvor langt er du?");
+             } else {
+                 return "Den gode studerende blev færdig for ".concat(
+                     -1 * diff.getHours() + 1,
+                     " timer siden. Hvor langt er du?");
+             }
          }
 
          function pct(decimal) {
@@ -77,6 +92,7 @@
                  "Har du prøvet med en pointer pointer?",
                  "Når koden driller er det godt, du blev færdig med de teoretiske spørgsmål i god tid. Ikke?",
                  "Den gode studerende løste opgaven på 20 timer",
+                 goodStudent(),
              ]);
          }
 
