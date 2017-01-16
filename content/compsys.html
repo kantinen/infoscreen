@@ -56,7 +56,7 @@
          function goodStudent() {
              var diff = new Date(GOOD_STUDENT.getTime() - localTimeNow());
 
-             if (diff.getHours() + 1 >= 0) {
+             if (diff.getHours() + 1 >= 0 && diff.getDate == 0) {
                  return "Den gode studerende er færdig om ".concat(
                      diff.getHours() + 1,
                      " timer. Hvor langt er du?");
