@@ -62,7 +62,8 @@
                      " timer. Hvor langt er du?");
              } else {
                  return "Den gode studerende blev færdig for ".concat(
-                     -1 * diff.getHours() + 1,
+                     (diff.getDate() - 25),
+//                     (24 - (diff.getHours() + 1)),
                      " timer siden. Hvor langt er du?");
              }
          }
