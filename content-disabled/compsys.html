@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+    <head>
+        <title>OSM Exam 2016 Countdown</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <div id="time" class="blink"></div>
+        <style>
+         #time {
+             margin:auto;
+             margin-top:7%;
+             text-align:center;
+             font-size:10vw;
+             position:relative;
+             top:50%
+         }
+
+         /* http://stackoverflow.com/questions/4894488/blinking-text-cross-browser */
+         @-webkit-keyframes blink {
+             from {
+                 opacity: 1.0;
+             }
+             to {
+                 opacity: 0.0;
+             }
+         }
+         blink {
+             -webkit-animation-name: blink;
+             -webkit-animation-iteration-count: infinite;
+             -webkit-animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
+             -webkit-animation-duration: 2s;
+             font-weight:bold;
+         }
+        </style>
+        <script>
+         var HANDOUT = new Date(2017, 0, 15, 9, 0);
+         var GOOD_STUDENT = new Date(2017, 0, 16, 5, 0);
+         var DEADLINE = new Date(2017, 0, 19, 16, 0);
+         showTime();
+
+         function localTimeNow() {
+             return Date.now() - DEADLINE.getTimezoneOffset() * 60 * 1000;
+         }
+
+         function timeLeft() {
+             var diff = new Date(DEADLINE.getTime() - localTimeNow());
+
+             return {
+                 days: diff.getDate() - 1, // fordi vi starter på 1
+                 hours: diff.getHours() + 1, // tidszone (+1 fordi sommertid (?))
+                 minutes: diff.getMinutes()
+             };
+         }
+
+         function goodStudent() {
+             var diff = new Date(GOOD_STUDENT.getTime() - localTimeNow());
+
+             if (diff.getHours() + 1 >= 0 && diff.getDate == 0) {
+                 return "Den gode studerende er færdig om ".concat(
+                     diff.getHours() + 1,
+                     " timer. Hvor langt er du?");
+             } else {
+                 return "Den gode studerende blev færdig for ".concat(
+                     (diff.getDate() - 25),
+//                     (24 - (diff.getHours() + 1)),
+                     " timer siden. Hvor langt er du?");
+             }
+         }
+
+         function pct(decimal) {
+             return Math.round(decimal*100);
+         }
+
+         function pctLeft() {
+             var diff_now = DEADLINE.getTime() - localTimeNow();
+             var diff_deadline = DEADLINE.getTime() - HANDOUT.getTime();
+             return pct((diff_deadline - diff_now) / diff_deadline);
+         }
+
+         function randomItem(items) {
+             return items[Math.floor(Math.random()*items.length)];
+         }
+
+         function randomIntro() {
+             return randomItem([
+                 "Har du afleveret #COMPSYS eksamen endnu?",
+                 "#Kirkedal vil gerne rette din #COMPSYS eksamen!",
+                 "Har du ikke testet dine kode endnu?",
+                 "MOV EXM-OPG EXAM.KU.DK endnu?",
+                 "Husk, at det er en del af opgaven at rette eventuelle fejl i den udlevede kode!",
+                 "Fik du rettet den segfault, som du ignorerede igår?",
+                 "Har du prøvet med en pointer pointer?",
+                 "Når koden driller er det godt, du blev færdig med de teoretiske spørgsmål i god tid. Ikke?",
+                 "Den gode studerende løste opgaven på 20 timer",
+                 goodStudent(),
+             ]);
+         }
+
+         function randomMotivator() {
+             return randomItem([
+                 "<b>?!KUN!?</b>",
+                 "<i>HELE</i>",
+                 "round robin",
+                 "heldigvis",
+                 "sådan cirkus",
+                 "cirkus sådan",
+                 "AAAAAAAAAAAA"]);
+         }
+
+         function showTime() {
+             var toShow = timeLeft();
+             var timeDiv = document.getElementById("time");
+
+             var daysText = "dage";
+             if (toShow.days === 1) {
+                 daysText = "dag";
+             }
+
+             timeDiv.innerHTML = "".concat(
+                 randomIntro(),
+                 "<br/><br/>Der er ",
+                 randomMotivator(),
+                 "</br><br/><b>",
+                 toShow.days, " ", daysText, ", ",
+                 toShow.hours, " timer, og ",
+                 toShow.minutes, " minutter",
+                 "</b><br/><br/>tilbage af compsys eksamen!<br/><br/>",
+                 "Du burde nu være ", pctLeft(), "% igennem..");
+         }
+        </script>
+    </body>
+</html>

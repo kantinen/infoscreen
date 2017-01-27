@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+    <head>
+        <title>JUL</title>
+        <meta charset="utf-8">
+        <style type="text/css">
+         /*Simple reset*/
+         * {margin: 0; padding: 0;}
+
+         body {
+	     /*You can use any kind of background here.*/
+             background-image: url("res/jul.jpg");
+/*	     background: #6b92b9; */
+         }
+         canvas {
+	     display: block;
+         }
+
+         h1, h2, h3 {
+             padding: 10px;             
+             background-color: rgba(255, 255, 255, 0.5); 
+         }
+
+         h1 {
+             font-size: 100px;             
+             color:green;
+             font-family: verdana;
+             text-align: center;
+         }
+
+         h2 {
+             font-size: 70px;
+             text-align: center;
+         }
+
+         h3 {
+             font-size: 50px;
+             text-align: center;
+         }
+
+         ul {
+             font-size: 70px;
+         }
+
+         li {
+             margin-left: 50px;
+             float: left;
+             list-style: none;
+             background-color: silver;
+         }
+
+         #bells {
+             position: absolute;
+             left: 50%;
+             top: 50%;
+             width: 256px;
+             height: 256px;
+             margin-left: -128px;
+             margin-top: -128px;
+             z-index: -1;
+             -webkit-animation: bells 4s infinite;
+         }
+
+         @-webkit-keyframes bells {
+             0% {
+                 -webkit-transform: rotate(0deg) scale(1, 1);
+             }
+             50% {
+                 -webkit-transform: rotate(55deg) scale(4.2, 4.2);
+             }
+             100% {
+                 -webkit-transform: rotate(720deg) scale(1, 1);
+             }
+         }
+        </style>
+    </head>
+    <body>
+        <h1>SÅ ER DET JUL!</h1>
+        <img src="res/bells.png"
+             id="bells" />
+        <canvas id="canvas"></canvas>
+    </body>
+    <script>
+     window.onload = function(){
+         //canvas init
+         var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        
+        //canvas dimensions
+        var W = window.innerWidth;
+        var H = window.innerHeight;
+        canvas.width = W;
+        canvas.height = H;
+        
+        //snowflake particles
+        var mp = 25; //max particles
+        var particles = [];
+        for(var i = 0; i < mp; i++)
+        {
+        particles.push({
+        x: Math.random()*W, //x-coordinate
+        y: Math.random()*H, //y-coordinate
+        r: Math.random()*4+1, //radius
+        d: Math.random()*mp //density
+        })
+        }
+        
+        //Lets draw the flakes
+        function draw()
+        {
+        ctx.clearRect(0, 0, W, H);
+        
+        ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+        ctx.beginPath();
+        for(var i = 0; i < mp; i++)
+        {
+        var p = particles[i];
+        ctx.moveTo(p.x, p.y);
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI*2, true);
+        }
+        ctx.fill();
+        update();
+        }
+        
+        //Function to move the snowflakes
+        //angle will be an ongoing incremental flag. Sin and Cos functions will be applied to it to create vertical and horizontal movements of the flakes
+        var angle = 0;
+        function update()
+        {
+        angle += 0.01;
+        for(var i = 0; i < mp; i++)
+        {
+        var p = particles[i];
+        //Updating X and Y coordinates
+        //We will add 1 to the cos function to prevent negative values which will lead flakes to move upwards
+        //Every particle has its own density which can be used to make the downward movement different for each flake
+        //Lets make it more random by adding in the radius
+        p.y += Math.cos(angle+p.d) + 1 + p.r/2;
+        p.x += Math.sin(angle) * 2;
+        
+        //Sending flakes back from the top when it exits
+        //Lets make it a bit more organic and let flakes enter from the left and right also.
+        if(p.x > W+5 || p.x < -5 || p.y > H)
+        {
+        if(i%3 > 0) //66.67% of the flakes
+        {
+        particles[i] = {x: Math.random()*W, y: -10, r: p.r, d: p.d};
+        }
+        else
+        {
+        //If the flake is exitting from the right
+        if(Math.sin(angle) > 0)
+        {
+        //Enter from the left
+        particles[i] = {x: -5, y: Math.random()*H, r: p.r, d: p.d};
+        }
+        else
+        {
+        //Enter from the right
+        particles[i] = {x: W+5, y: Math.random()*H, r: p.r, d: p.d};
+        }
+        }
+        }
+        }
+        }
+        
+        //animation loop
+        setInterval(draw, 33);
+        }
+    </script>
+
+
+
+</html>
+
+
