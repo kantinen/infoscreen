@@ -86,8 +86,7 @@ tail -f $in \
     | grep --line-buffered -E "^$channel" \
     | gawk '{$1=$2=$3=""; print; fflush();}' \
     | tee /dev/stderr \
-    | sed -u 's/^ *//' \
     | while IFS='' read line; do
     process_line "$line" >> "$in"
-    echo "$line" | fmt -75 | color_usermsg >> $irc_out
+    echo "$line" | fmt -75 -s | color_usermsg >> $irc_out
 done
