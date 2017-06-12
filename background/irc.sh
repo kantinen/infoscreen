@@ -63,7 +63,7 @@ color_usermsg() {
 
     time=$(echo -e "$line" | cut -d ' ' -f 1)
     user=$(echo -e "$line" | cut -d ' ' -f 2- | cut -d '>' -f 1)
-    end=$(echo -e "$line" | cut -d '>' -f 2-)
+    end=$(echo -e "$line" | cut -d '>' -f 2- | ./deirc.pl)
     {
         echo -en "$timecolor"
         echo -en "$time "
@@ -74,7 +74,7 @@ color_usermsg() {
     }
 
     # Any remaining lines.
-    cat
+    cat | ./deirc.pl
 }
 
 shorten_line() {
