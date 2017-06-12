@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-use 5.024;
+use 5.016;
 use warnings;
 
 my $CSI = "\033[";
