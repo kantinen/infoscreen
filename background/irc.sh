@@ -57,13 +57,18 @@ per_line() {
     done
 }
 
+deirc() {
+    # Convert IRC colors to terminal colors.
+    "$(dirname "$0")/deirc.pl"
+}
+
 color_usermsg() {
     # The first line of the 'fmt' output.
     IFS='' read -r line
 
     time=$(echo -e "$line" | cut -d ' ' -f 1)
     user=$(echo -e "$line" | cut -d ' ' -f 2- | cut -d '>' -f 1)
-    end=$(echo -e "$line" | cut -d '>' -f 2- | ./deirc.pl)
+    end=$(echo -e "$line" | cut -d '>' -f 2- | deirc)
     {
         echo -en "$timecolor"
         echo -en "$time "
@@ -74,7 +79,7 @@ color_usermsg() {
     }
 
     # Any remaining lines.
-    cat | ./deirc.pl
+    cat | deirc
 }
 
 shorten_line() {
