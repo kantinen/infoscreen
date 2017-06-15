@@ -95,7 +95,7 @@ print_line() {
 }
 
 handle_line() {
-    line="$1"
+    IFS='' read -r line
     if echo "$line" | egrep -q '<[^>]+> '$name'[:,] hjælp'; then
         echo "Jeg forstår følgende kommandoer:"
         echo "  breaking: <besked>"
