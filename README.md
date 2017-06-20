@@ -62,4 +62,4 @@ For at køre vores IRC-viser-slide kræves også:
 
   + `sic`: Simpel IRC-klient
   + `toilet`: Tekst-formatterings-program
-  + `lxterminal` med fontstørrelse 32
+  + `lxterminal` med fontstørrelse 33
