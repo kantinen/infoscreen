@@ -1,26 +1,27 @@
 #!/bin/sh
+#
+# Start a new xsession.
 
-
-#white is right
+# Be boring.
 xsetroot -solid white
 
-
+# We might have some local binaries in ~/bin/, e.g. a custom surf.
 export PATH=/home/odroid/bin:/usr/local/bin:$PATH
 
-# hide mouse using xdotool
+# Hide mouse.
 xdotool mousemove 2000 2000
 
-
+# Wait a little before starting the IRC client - the ODroid needs a
+# little time to establish a connection.
 (sleep 5; infoscreen/background/irc.sh) &
-
 
 # If X has restarted then tmux with the kantinfo script may already
 # be running - if so, kill it before we start a new one.
 tmux kill-session -t kantinfo
 
+# Start a new tmux running the kantinfo script.
+dbus-launch tmux new-session -s kantinfo -d \
+            'cd kantinfo; ./kantinfo.py ../infoscreen/content; bash'
 
-dbus-launch tmux new-session -s kantinfo -d 'cd kantinfo; ./kantinfo.py ../infoscreen/content; bash'
-
-# start window manager
+# Start the barebones window manager.
 matchbox-window-manager -use_titlebar no
-
