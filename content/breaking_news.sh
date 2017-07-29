@@ -15,7 +15,8 @@ def show():
     with open(breaking_file) as f:
         breaking_news = html.escape( f.read().strip() )
     
-    with open(os.path.join(basedir, 'res/breaking_news_skabelon.html')) as f:
+    with open(os.path.join(basedir, 'res/breaking_news_skabelon.html'),
+              encoding='utf-8') as f:
         d = f.read()
     
     fname = '/tmp/breaking_news.html'
