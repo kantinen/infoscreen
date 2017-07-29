@@ -1,0 +1,26 @@
+#!/bin/sh
+
+
+#white is right
+xsetroot -solid white
+
+
+export PATH=/home/odroid/bin:/usr/local/bin:$PATH
+
+# hide mouse using xdotool
+xdotool mousemove 2000 2000
+
+
+(sleep 5; infoscreen/background/irc.sh) &
+
+
+# If X has restarted then tmux with the kantinfo script may already
+# be running - if so, kill it before we start a new one.
+tmux kill-session -t kantinfo
+
+
+dbus-launch tmux new-session -s kantinfo -d 'cd kantinfo; ./kantinfo.py ../infoscreen/content; bash'
+
+# start window manager
+matchbox-window-manager -use_titlebar no
+
