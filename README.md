@@ -48,11 +48,32 @@ Et cronjob (`sudo crontab -e`) sørger for at genstarte maskinen hver morgen
 klokken 6.  Dette er for at sikre at der aldrig sniger sig noget ind i
 opsætningen der ikke kan overleve en genstart.
 
+Ny Opsætning
+------------
+Infoskærming i kantinen har fået nyt SD-kort. Diverse hardware detajler og
+log ind informationer gælder stadig. Når vi har konstateret at den kører stabilt
+bør gamle informationer slettes.
+
+Filen '/usr/share/lightdm/lightdm.conf.d/60-lightdm-gtk-greeter.conf' logger
+brugeren odroid ind og slår skærmens strømsparing fra, hvis denne af en grund
+skulle være blevet slået til.
+
+Når brugeren er logget ind kører scriptet `.xsession` fra odroids hjemmemappe.
+Vi har vedhæftet vores `.xsession` i dette repo; se filen `xsession` (den er
+symlinket på odroiden).
+
+Dette scripts primære ansvar er at starte en `tmux`-session der kører
+infoskærmsscriptet, samt starte en enkel window manager.  Hvis du vil tilføje
+andre baggrundsprocesser og deslige, så start dem her.
+
+Et cronjob (`sudo crontab -e`) sørger for at genstarte maskinen hver mandag
+klokken 6.  Dette er for at sikre at der aldrig sniger sig noget ind i
+opsætningen der ikke kan overleve en genstart.
 
 Afhængigheder
 -------------
 
-Vores `xinitrc` afhænger af disse programmer:
+Vores `xinitrc`, `xsession` afhænger af disse programmer:
 
   + `matchbox`: Simpel window manager
   + `xdotool`: Musemarkør-skjuler (mm.)
