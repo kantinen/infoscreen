@@ -12,15 +12,16 @@ def show():
     if seconds_passed > 60 * 60 * 2: # Two hours
         return
     
-    with open(breaking_file) as f:
+    with open(breaking_file, encoding='utf-8') as f:
         breaking_news = html.escape( f.read().strip() )
     
-    with open(os.path.join(basedir, 'res/breaking_news_skabelon.html')) as f:
+    with open(os.path.join(basedir, 'res/breaking_news_skabelon.html'),
+              encoding='utf-8') as f:
         d = f.read()
     
     fname = '/tmp/breaking_news.html'
     
-    with open(fname, 'w') as f:
+    with open(fname, 'w', encoding='utf-8') as f:
         print(d.replace('{BREAKING_NEWS}', breaking_news), file=f)
     
     subprocess.check_call(['surf', '-p', 'file://' + fname])
