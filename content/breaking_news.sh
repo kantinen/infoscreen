@@ -21,7 +21,7 @@ def show():
     
     fname = '/tmp/breaking_news.html'
     
-    with open(fname, 'w') as f:
+    with open(fname, 'w', encoding='utf-8') as f:
         print(d.replace('{BREAKING_NEWS}', breaking_news), file=f)
     
     subprocess.check_call(['surf', '-p', 'file://' + fname])
