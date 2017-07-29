@@ -38,7 +38,7 @@ Så kan man logge ind ved at køre `ssh infoscreen`.
 
 Når maskinen starter op, bliver brugeren `odroid` logget ind i en session, der
 kører scriptet `.xsessionrc`.  Vi har vedhæftet vores `.xsessionrc` i dette
-repo; se filen `xsessionrc` (den er symlinket på odroiden).
+repo; se filen `xsessionrc` i `system`-mappen (den er symlinket på odroiden).
 
 Dette scripts primære ansvar er at starte en `tmux`-session der kører
 infoskærmsscriptet, samt starte en enkel window manager.  Hvis du vil tilføje
@@ -50,7 +50,8 @@ kan overleve en genstart.
 
 Filen `/usr/share/lightdm/lightdm.conf.d/60-lightdm-gtk-greeter.conf` logger
 brugeren odroid ind og slår skærmenstrømbesparingsmekanismen fra, hvis denne af
-en grund skulle være blevet slået til.
+en grund skulle være blevet slået til.  Vi har vedhæftet filen i repoet i
+`system`-mappen.
 
 
 Afhængigheder
@@ -67,5 +68,5 @@ For at køre vores IRC-viser-slide kræves også:
   + `sic`: Simpel IRC-klient
   + `toilet`: Tekst-formatterings-program
   + `lxterminal` med fontstørrelse 33; vi har vedhæftet en `lxterminal.conf` i
-    dette repo som skal lægges i `~/.config/lxterminal/`
+    dette repo i `system`-mappen som skal lægges i `~/.config/lxterminal/`
   + skrifttypen Gentium
