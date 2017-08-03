@@ -4,4 +4,4 @@ img_url=$(curl -sL http://www.gocomics.com/random/compu-toon \
               | grep data-image | cut -d'"' -f2)
 
 curl -s "$img_url" > /tmp/compu-toon
-echo content/res/compu-toon.html
+readlink -f "$(dirname "$0")/res/compu-toon.html"
