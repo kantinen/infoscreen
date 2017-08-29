@@ -132,6 +132,6 @@ else
     # Log på IRC og kør klienten uendeligt.
     join_channel
     tail -f $in \
-        | ircloop \
-        | process_text
+        | while true; do ircloop; done \
+        | while true; do process_text; done
 fi
