@@ -59,9 +59,7 @@ per_line() {
 
 deirc() {
     # Convert IRC colors to terminal colors.
-    # "$(dirname "$0")/deirc.pl"
-    # Disabled, because I suspect it is broken.
-    cat
+    "$(dirname "$0")/deirc.pl"
 }
 
 color_usermsg() {
