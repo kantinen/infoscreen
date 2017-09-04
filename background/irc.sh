@@ -47,7 +47,7 @@ goto_slide() {
 set_breaking_news() {
     news=$1
     echo "$news" > $breaking_news
-    goto_slide breaking_news.sh
+    goto_slide breaking_news.eval
 }
 
 per_line() {
