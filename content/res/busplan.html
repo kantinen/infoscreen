@@ -50,13 +50,9 @@
      }
 
      html {
-         background-image: url(./res/city.jpg);
+         background-image: url(./city.jpg);
      }
-
-
-
-
-    </style>
+  </style>
   </head>
   <body>
       <div>
@@ -107,7 +103,7 @@
 
      var request = new XMLHttpRequest();
      request.open("GET",
-                  "http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=6025",
+                  "file:///tmp/busplan",
                   true);
      request.onreadystatechange = function(myXML){
          if (request.readyState == 4) {
