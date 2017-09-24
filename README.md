@@ -69,4 +69,4 @@ For at køre vores IRC-viser-slide kræves også:
   + `toilet`: Tekst-formatterings-program
   + `lxterminal` med fontstørrelse 33; vi har vedhæftet en `lxterminal.conf` i
     dette repo i `system`-mappen som skal lægges i `~/.config/lxterminal/`
-  + skrifttypen Gentium
+  + skrifttyperne Gentium og Comfortaa
