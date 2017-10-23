@@ -11,9 +11,23 @@
 	border: 0;
 }
 
+@-webkit-keyframes flyt {
+	from {left: calc(100vw - 400px);}
+	to {left: -800px;}
+}
+
 @keyframes flyt {
 	from {left: calc(100vw - 400px);}
 	to {left: -800px;}
+}
+
+@-webkit-keyframes flyvNed {
+	from {
+		bottom: 0;
+	}
+	to {
+		bottom: -100vh;
+	}
 }
 
 @keyframes flyvNed {
@@ -22,6 +36,14 @@
 	}
 	to {
 		bottom: -100vh;
+	}
+}
+@-webkit-keyframes flyvOp {
+	from {
+		top: 0;
+	}
+	to {
+		top: -100vh;
 	}
 }
 @keyframes flyvOp {
@@ -54,11 +76,17 @@ li {
 	top: 0;
 	width: 100vw;
 	height: 50vh;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(90%, var(--red-color)), color-stop(90%, var(--green-color)), to(var(--green-color)));
+	background: -webkit-linear-gradient(var(--red-color) 90%, var(--green-color) 90%, var(--green-color));
+	background: -o-linear-gradient(var(--red-color) 90%, var(--green-color) 90%, var(--green-color));
 	background: linear-gradient(var(--red-color) 90%, var(--green-color) 90%, var(--green-color));
 	z-index: -5;
-	animation: flyvOp 2s;
-	animation-delay: 1.6s;
-	animation-fill-mode: forwards;
+	-webkit-animation: flyvOp 2s;
+	        animation: flyvOp 2s;
+	-webkit-animation-delay: 1.6s;
+	        animation-delay: 1.6s;
+	-webkit-animation-fill-mode: forwards;
+	        animation-fill-mode: forwards;
 
 }
 
@@ -66,13 +94,19 @@ li {
 	position: absolute;
 	width: 100vw;
 	height: 50vh;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(10%, var(--green-color)), color-stop(10%, var(--red-color)), to(var(--red-color)));
+	background: -webkit-linear-gradient(var(--green-color) 10%, var(--red-color) 10%, var(--red-color));
+	background: -o-linear-gradient(var(--green-color) 10%, var(--red-color) 10%, var(--red-color));
 	background: linear-gradient(var(--green-color) 10%, var(--red-color) 10%, var(--red-color));
 	z-index: 5;
 	bottom: 0;
 	left: 0;
-	animation: flyvNed 2s;
-	animation-delay: 1.6s;
-	animation-fill-mode: forwards;
+	-webkit-animation: flyvNed 2s;
+	        animation: flyvNed 2s;
+	-webkit-animation-delay: 1.6s;
+	        animation-delay: 1.6s;
+	-webkit-animation-fill-mode: forwards;
+	        animation-fill-mode: forwards;
 
 }
 
@@ -83,7 +117,8 @@ li {
 	top: calc(50vh - 200px);
 	left: -800px;
 	z-index: 0;
-	animation: flyt 1.5s;
+	-webkit-animation: flyt 1.5s;
+	        animation: flyt 1.5s;
 }
 
 #saksOp {
@@ -96,7 +131,9 @@ li {
 	width: 800px;
 	height: 200px;
 	background: url('res/saks.png');
-	transform: scaleY(-1)
+	-webkit-transform: scaleY(-1);
+	    -ms-transform: scaleY(-1);
+	        transform: scaleY(-1)
 }
 
 #content {
@@ -108,6 +145,28 @@ li {
 	left: 0;
 	color: white;
 	padding: 5%;
+	background: -webkit-radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+		-webkit-radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+		-webkit-radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+		-webkit-radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+		-webkit-radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%),
+
+		-webkit-radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+		-webkit-radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+		-webkit-radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+		-webkit-radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+		-webkit-radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%) 50px 50px;
+	background: -o-radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+		-o-radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+		-o-radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+		-o-radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+		-o-radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%),
+
+		-o-radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+		-o-radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+		-o-radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+		-o-radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+		-o-radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%) 50px 50px;
 	background: radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%),
 		radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%),
 		radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%),
