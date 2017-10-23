@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Julefrokost</title>
+	<meta charset="utf-8">
+	<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+<style type="text/css">
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+@keyframes flyt {
+	from {left: calc(100vw - 400px);}
+	to {left: -800px;}
+}
+
+@keyframes flyvNed {
+	from {
+		bottom: 0;
+	}
+	to {
+		bottom: -100vh;
+	}
+}
+@keyframes flyvOp {
+	from {
+		top: 0;
+	}
+	to {
+		top: -100vh;
+	}
+}
+
+:root {
+	--red-color: #cc0000;
+	--green-color: #060;
+}
+
+ul {
+    overflow: visible;
+    list-style: disc outside;
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+li {
+    overflow: visible;
+}
+
+#papirOp {
+	position: absolute;
+	top: 0;
+	width: 100vw;
+	height: 50vh;
+	background: linear-gradient(var(--red-color) 90%, var(--green-color) 90%, var(--green-color));
+	z-index: -5;
+	animation: flyvOp 2s;
+	animation-delay: 1.6s;
+	animation-fill-mode: forwards;
+
+}
+
+#papirNed {
+	position: absolute;
+	width: 100vw;
+	height: 50vh;
+	background: linear-gradient(var(--green-color) 10%, var(--red-color) 10%, var(--red-color));
+	z-index: 5;
+	bottom: 0;
+	left: 0;
+	animation: flyvNed 2s;
+	animation-delay: 1.6s;
+	animation-fill-mode: forwards;
+
+}
+
+#saks {
+	position: absolute;
+	width: 800px;
+	height: 400px;
+	top: calc(50vh - 200px);
+	left: -800px;
+	z-index: 0;
+	animation: flyt 1.5s;
+}
+
+#saksOp {
+	width: 800px;
+	height: 200px;
+	background: url('res/saks.png');
+}
+
+#saksNed {
+	width: 800px;
+	height: 200px;
+	background: url('res/saks.png');
+	transform: scaleY(-1)
+}
+
+#content {
+	position: absolute;
+	z-index: -100;
+	width: 90%;
+	height: 90%;
+	top: 0;
+	left: 0;
+	color: white;
+	padding: 5%;
+	background: radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+		radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+		radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+		radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+		radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%),
+
+		radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+		radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+		radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+		radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+		radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%) 50px 50px;
+	background-color:#b03;
+	background-size:100px 100px;
+
+}
+
+#papirOp center {
+	padding-top: calc(25vh - 1em);
+	color: white;
+	font-size: 32px;
+}
+
+body {
+	font-family: sans-serif;
+	overflow: hidden;
+}
+</style>
+</head>
+<body>
+	<div id="papirOp">
+		<center>
+			<h1 style="font: 400 130px/0.8 'Great Vibes', Helvetica, sans-serif; font-size: 5em;">
+				Kantinen præsenterer
+			</h1>
+		</center>
+	</div>
+	<div id="saks">
+		<div id="saksOp"></div>
+		<div id="saksNed"></div>
+	</div>
+	<div id="papirNed"></div>
+	<div id="content">
+		<center>
+			<h1 style="font-size: 5em;">Klippeklistredag i kantinen d. 30. november</h1>
+			<br />
+			<br />
+			<h2 style="font-size: 3em;">
+			Det er muligt at købe billetter til Kantinens julefrokost d. 15. december<br />
+			Betaling på MobilePay eller kontant
+			<br /><br />
+			Det er også muligt at:
+			</h2>
+		</center>
+		<h2 style="font-size: 3em;">
+			<ul>
+				<li>Hygge</li>
+				<li>Pynte juletræ</li>
+				<li>Klippe-klistre ved langbord</li>
+				<li>Æde sig fed i gratis æbleskiver og gløgg</li>
+				<li>Drikke øl</li>
+			</ul>
+		</h2>
+	</div>
+</body>
+</html>
