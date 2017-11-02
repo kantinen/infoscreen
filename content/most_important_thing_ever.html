@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <title>GOTTA GO FAST</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+body {
+  overflow: hidden;
+  background-color: black;
+  color: white;
+  margin: 0;
+  text-align: center;
+}
+
+#clickbait {
+font-size: 100px;
+color: white;
+}
+
+#link {
+  font-size: 70px;
+  text-align: center;
+}
+
+#what {
+  font-size: 50px;
+  text-align: center;
+}
+
+    </style>
+    <script>
+      window.onload = function() {
+      var clickbaits = ["They never thought a functional language could get faster than C!", "They just wanted to write a compiler, but see what happens next.", "Think a purely functional language has to be slow?", "JOIN THE FUTURE OF PROGRAMMING", "It's like if a blue hedgehog was turned into a programming language.", "Hey, some courses will force you to program in this stuff.", "Come to my PhD defense about compiling a functional language to efficient GPU code!", "One Sweet Coding Trick They Don't Want You To Know", "C compilers hate him!", "What actually happens after you spend eleven years at DIKU?", "Witness the fate of the remnant of DIKU's 2006 student update"];
+      var clickbait = clickbaits[Math.floor(Math.random()*clickbaits.length)];
+      document.getElementById("clickbait").innerHTML = clickbait;
+      }
+    </script>
+  </head>
+  <body>
+    <h1 id="clickbait">Come to my PhD Defense</h1>
+
+    <hr>
+
+    <span id="link">http://bit.do/gotta_go_fast</a>
+
+    <hr>
+
+    <p id="what">
+      November 15th, Aud. 06, HCØ
+    </p>
+  </body>
+</html>
