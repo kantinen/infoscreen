@@ -76,7 +76,7 @@ Vores `xsessionrc` afhænger af disse programmer:
   + `xdotool`: Musemarkør-skjuler (mm.)
   + `tmux`: Ligesom `screen`, men fra BSD
 
-For at køre vores IRC-viser-slide kræves også:
+Ekstra afhængigheder der kræves af diverse slides:
 
   + `sic`: Simpel IRC-klient
   + `toilet`: Tekst-formatterings-program
