@@ -10,4 +10,4 @@ set -ex # Stop ved første fejl.  Skriv de kørte kommandoer til stdout.
 export PATH="$(echo "$PATH" | sed -r 's/^\/home\/odroid\/infoscreen\/system\/bin://')"
 
 # Kør den rigtige surf med et user script der giver faldende snefnug.
-surf -r "$(basename "$0")/../snowstorm.js" "$@"
+surf -r "$(dirname "$0")/../snowstorm.js" "$@"
