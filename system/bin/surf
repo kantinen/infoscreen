@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# Send nogle ekstra flag til surf (på en fjollet måde).
+
+# Fjern den nuværende mappe fra PATH, så vi kan køre den rigtige surf uden at
+# hardcode dens position.  Det her er skrøbeligt og afhænger af hvordan PATH
+# bliver sat i xsessionrc.
+export PATH="$(echo "$PATH" | sed -r 's/^\/home\/odroid\/infoscreen\/system\/bin://')"
+
+# Kør den rigtige surf med et user script der giver faldende snefnug.
+surf -r "$(basename "$0")/../snowstorm.js" "$@"
