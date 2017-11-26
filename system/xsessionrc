@@ -8,7 +8,7 @@ xsetroot -solid white
 # We might have some local binaries in ~/bin/, e.g. a custom surf.
 export PATH=/home/odroid/bin:/usr/local/bin:$PATH
 
-# We might also have some repo-local binaries
+# We might also have some repo-local binaries.
 export PATH=/home/odroid/infoscreen/system/bin:$PATH
 
 # Hide mouse.
