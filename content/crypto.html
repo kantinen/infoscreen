@@ -21,48 +21,39 @@
             font-size:10vw;
             position: fixed;
             top: 15%;
-            left: 25%;
-            width: 25%;
+            left: 15%;
+            width: 35%;
             height: 35%;
          }
-         #coin2 {
+        #coin2 {
             margin:auto;
             text-align:center;
             font-size:10vw;
             position: fixed;
             top: 15%;
-            left: 50%;
-            width: 25%;
+            right: 15%;
+            width: 35%;
             height: 35%;
          }
-         #coin3 {
+        #coin3 {
             margin:auto;
             text-align:center;
             font-size:10vw;
             position: fixed;
-            top: 48%;
-            left: 25%;
-            width: 25%;
+            top: 57%;
+            left: 15%;
+            width: 35%;
             height: 35%;
          }
-         #coin4 {
+        #coin4 {
             margin:auto;
             text-align:center;
             font-size:10vw;
             position: fixed;
-            top: 48%;
-            left: 50%;
-            width: 25%;
+            top: 57%;
+            right: 15%;
+            width: 35%;
             height: 35%;
-         }
-        #coin7 {
-            margin:auto;
-            text-align:center;
-            font-size: 6vw;
-            position: fixed;
-            top: 81%;
-            width: 100%;
-            line-height: 0px;
          }
         /* http://stackoverflow.com/questions/4894488/blinking-text-cross-browser */
         @-webkit-keyframes blink {
@@ -86,14 +77,11 @@
             var GOOD_STUDENT = new Date(2017, 0, 16, 5, 0);
             var DEADLINE = new Date(2017, 0, 19, 16, 0);
             showTime();
-
             function randomItem(items) {
                 return items[Math.floor(Math.random()*items.length)];
             }
-
             function showTime() {
                 var timeDiv = document.getElementById("time");
-
                 timeDiv.innerHTML = randomItem([
                     "<b>HAR DU IKKE DOBLET DINE PENGE I DAG?</b>",
                     "<b>MARKEDET CRASHERRR!!!!</b> - <i>Så er det perfekte at købe på</i>",
@@ -126,7 +114,7 @@
              embedder.parentNode.appendChild(s);
          })();
         </script>
-        </div>
+        <div>
 
         <div id=coin2>
         <script type="text/javascript">
@@ -144,7 +132,7 @@
              embedder.parentNode.appendChild(s);
          })();
         </script>
-        </div>
+        <div>
 
         <div id=coin3>
         <script type="text/javascript">
@@ -162,7 +150,7 @@
              embedder.parentNode.appendChild(s);
          })();
         </script>
-        </div>
+
         <div id=coin4>
         <script type="text/javascript">
          baseUrl = "https://widgets.cryptocompare.com/";
@@ -179,24 +167,6 @@
              embedder.parentNode.appendChild(s);
          })();
         </script>
-        </div>
-        <div id=coin7>
-            <script type="text/javascript">
-             baseUrl = "https://widgets.cryptocompare.com/";
-             var scripts = document.getElementsByTagName("script");
-             var embedder = scripts[ scripts.length - 1 ];
-             var cccTheme = {"General":{"showLogo":false,"showChangePercent":false}};
-             (function (){
-                 var appName = encodeURIComponent(window.location.hostname);
-                 if(appName==""){appName="local";}
-                 var s = document.createElement("script");
-                 s.type = "text/javascript";
-                 s.async = true;
-                 var theUrl = baseUrl+'serve/v3/coin/header?fsyms=XRP,BTC,ETH,LTC&tsyms=EUR';
-                 s.src = theUrl + ( theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + appName;
-                 embedder.parentNode.appendChild(s);
-             })();
-            </script>
-            </div>
+        <div>
     </body>
 </html>
