@@ -53,6 +53,10 @@ img {
 
 }
 
+.pulse {
+  -webkit-animation: pulse 3s linear infinite;
+}
+
 @-webkit-keyframes rotate {
   0% {
     -webkit-transform: rotate(0deg);
@@ -61,13 +65,24 @@ img {
     -webkit-transform: rotate(360deg);
   }
 }
+
+@-webkit-keyframes pulse {
+   0% {
+        font-size: 50px;
+   }
+   50% {
+        font-size: 100px;
+   }
+   100% {
+        font-size: 50px;
+   }
+}
     </style>
   </head>
   <body>
     <h1>DIKUrevyen har brug for DIG!</h1>
 
-    <h2>Vi dataloger holder vores revy i maj, og <b>DU</b> kan snildt være med.
-    Det er sjovt!</h2>
+    <h2>Indtil den <span class="pulse">24. marts</span> kan du nå at melde dig til årets revy!</h2>
 
     <img src="res/revykage.png" alt="Revyen går i kage" />
     
@@ -91,7 +106,7 @@ img {
     </ul>
     <div class="clear"></div>
 
-    <h2>Skriv til revy@dikurevy.dk og/eller find en fra revyen.</h2>
+    <h2>Skynd dig ind på dikurevy.dk og meld dig til!</h2>
     
   </body>
 </html>
