@@ -8,22 +8,25 @@ import html
 def show():
     basedir = os.path.dirname(__file__)
     breaking_file = os.path.expanduser('~/breaking_news')
+    if not os.path.exists(breaking_file):
+        return
     seconds_passed = time.time() - os.stat(breaking_file).st_mtime
     if seconds_passed > 60 * 60 * 2: # Two hours
         return
-    
-    with open(breaking_file) as f:
+
+    with open(breaking_file, encoding='utf-8') as f:
         breaking_news = html.escape( f.read().strip() )
-    
-    with open(os.path.join(basedir, 'res/breaking_news_skabelon.html')) as f:
-        d = f.read()
-    
+
+    with open(os.path.join(basedir, 'res/breaking_news_skabelon.html'),
+              encoding='utf-8') as f:
+        template = f.read()
+
     fname = '/tmp/breaking_news.html'
-    
-    with open(fname, 'w') as f:
-        print(d.replace('{BREAKING_NEWS}', breaking_news), file=f)
-    
-    subprocess.check_call(['surf', '-p', 'file://' + fname])
+
+    with open(fname, 'w', encoding='utf-8') as f:
+        print(template.replace('{BREAKING_NEWS}', breaking_news), file=f)
+
+    print(fname)
 
 if __name__ == '__main__':
     show()

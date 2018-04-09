@@ -1,0 +1,6 @@
+#!/bin/sh
+
+rejseplanen_url="http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=6025"
+
+curl -s "$rejseplanen_url" > /tmp/busplan
+readlink -f "$(dirname "$0")/res/busplan.html"

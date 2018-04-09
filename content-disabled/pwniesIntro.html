@@ -1,9 +1,10 @@
 <html>
 <head>
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <style>
 #header, #footer {
-    background-color: rgb(235,133,24); 
+    background-color: rgb(20,115,20); 
     height: 200px;
     text-align: center;
 }
@@ -20,6 +21,7 @@
 #body {
     height: 680px;
     background-color: black;
+    background-image: url("res/matrix.jpg");
     position: relative;
     font-size: 40pt;
 }
@@ -28,16 +30,17 @@ body {
     margin: 0px;
     padding: 0px;
     color: white;
+    text-shadow: -1px 0 black, 0 3px black, 3px 0 black, 0 -1px black;
     overflow: hidden;
 }
 
-#beer, #problems, #practice, #more_beer {
+#gibson, #h4cker, #rop, #GUI {
     position: absolute;
 
     -webkit-animation-timing-function: linear;
 }
 
-@-webkit-keyframes beer {
+@-webkit-keyframes gibson {
     0% {
         -webkit-transform: rotate(-20deg);
     }
@@ -49,12 +52,12 @@ body {
     }
 }
 
-#beer {
+#gibson {
     top: 150px; right: 330px;
-    -webkit-animation: beer 2s infinite;
+    -webkit-animation: gibson 2s infinite;
 }
 
-@-webkit-keyframes problems {
+@-webkit-keyframes h4cker {
     0% {
         -webkit-transform: rotate(25deg);
     }
@@ -65,16 +68,16 @@ body {
         -webkit-transform: rotate(25deg);
     }
 }
-#problems {
+#h4cker {
     top: 125px; left: 100px;
-    -webkit-animation: problems 2.5s infinite;
+    -webkit-animation: h4cker 2.5s infinite;
 }
-#practice {
+#rop {
     bottom: 200px; left: 50px;
-    -webkit-animation: beer 1.8s infinite;
+    -webkit-animation: gibson 1.8s infinite;
 }
 
-@-webkit-keyframes more_beer {
+@-webkit-keyframes GUI {
     0% {
         -webkit-transform: rotate(15deg);
     }
@@ -85,9 +88,9 @@ body {
         -webkit-transform: rotate(15deg);
     }
 }
-#more_beer {
+#GUI {
     bottom: 125px; right: 100px;
-    -webkit-animation: more_beer 2.5s infinite;
+    -webkit-animation: GUI 2.5s infinite;
 }
 
 #header {
@@ -100,17 +103,17 @@ body {
 </head>
 <body>
     <div id="header">
-        <span id="headline">DM i Programmering Warmup</span>
+        <span id="headline">!!Pwnies Introdag!!</span>
     </div>
     <div id="body">
-        <span id="beer">Free food and beer</span>
-        <span id="problems">Fun coding problems</span>
-        <span id="practice">Practice for DM i Programmering</span>
-        <span id="more_beer">Did we mention free beer?</span>
+        <span id="gibson">Hack the Gibson!</span>
+        <span id="h4cker">Become a 1337 h4cker</span>
+        <span id="rop">rop rop rop rop</span>
+        <span id="GUI">GUI interface in Visual Basic!</span>
     </div>
     <div id="footer">
-        <span id="time_info">Friday the 16th of September, 16:00 in Kantinen</span>
-        <span id="signup_info">Sign up @ http://goo.gl/ayLvs8</span>
+        <span id="time_info"><b>Torsdag d.5 Oktober, 18:00 i K@ntinen!</b></span>
+        <span id="signup_info"><i>Medbring jeres datamater!</i></span>
     </div>
 </body>
 </html>

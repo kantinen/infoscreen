@@ -1,10 +1,14 @@
 #!/bin/bash
 
-# Copyright © 2014-2015 Infoskærms-gruppen <infoskaerm@dikumail.dk>
+# Copyright © 2014-2017 Infoskærms-gruppen <infoskaerm@dikumail.dk>
 #
 # This work is free. You can redistribute it and/or modify it under the
 # terms of the Do What The Fuck You Want To Public License, Version 2,
 # as published by Sam Hocevar. See the COPYING file for more details.
+
+if [ "$1" = 'debug' ]; then
+    IS_DEBUG=1
+fi
 
 irc_out=$HOME/diku_irc_out
 breaking_news=$HOME/breaking_news
@@ -13,30 +17,15 @@ timecolor='\e[0;31m'
 usercolor='\e[0;32m'
 msgcolor='\e[0;37m'
 name=infoskaerm
+channel="#diku"
 
-color_usermsg() {
-    # Første linje af fmt-uddataen.
-    read line
-    time=$(echo "$line" | cut -d ' ' -f 1)
-    user=$(echo "$line" | cut -d ' ' -f 2- | cut -d '>' -f 1)
-    end=$(echo "$line" | cut -d '>' -f 2-)
-    {
-        echo -en "$timecolor"
-        echo -en "$time "
-        echo -en "$usercolor"
-        echo -n "$user>"
-        echo -en "$msgcolor"
-        echo "$end"
-    }
-
-    cat # Resterende linjer.
-}
-
-# Input til IRC-klienten.
+# Input to the IRC client loop.
 in=$(mktemp)
 touch $in
 
-channel="#diku"
+# Output text file read by the slide.
+touch $irc_out
+
 
 join_channel() {
     # Join #diku.
@@ -58,11 +47,55 @@ goto_slide() {
 set_breaking_news() {
     news=$1
     echo "$news" > $breaking_news
-    goto_slide breaking_news.sh
+    goto_slide breaking_news.eval
 }
 
-process_line() {
-    line=$1
+per_line() {
+    function=$1
+    while IFS='' read -r line; do
+        echo -e "$line" | $function
+    done
+}
+
+deirc() {
+    # Convert IRC colors to terminal colors.
+    "$(dirname "$0")/deirc.pl"
+}
+
+color_usermsg() {
+    # The first line of the 'fmt' output.
+    IFS='' read -r line
+
+    time=$(echo -e "$line" | cut -d ' ' -f 1)
+    user=$(echo -e "$line" | cut -d ' ' -f 2- | cut -d '>' -f 1)
+    end=$(echo -e "$line" | cut -d '>' -f 2- | deirc)
+    {
+        echo -en "$timecolor"
+        echo -en "$time "
+        echo -en "$usercolor"
+        echo -en "$user>"
+        echo -en "$msgcolor"
+        echo -e "$end"
+    }
+
+    # Any remaining lines.
+    cat | deirc
+}
+
+shorten_line() {
+    # Keep only the most important parts.
+    cut -d ':' -f 2- \
+        | cut -d ' ' -f 3-
+}
+
+print_line() {
+    fmt -75 -s \
+        | color_usermsg \
+        | tee /dev/stderr
+}
+
+handle_line() {
+    IFS='' read -r line
     if echo "$line" | egrep -q '<[^>]+> '$name'[:,] hjælp'; then
         echo "Jeg forstår følgende kommandoer:"
         echo "  breaking: <besked>"
@@ -77,17 +110,26 @@ process_line() {
     fi
 }
 
-join_channel
+process_text() {
+    grep --line-buffered -E "^$channel" \
+        | per_line shorten_line \
+        | tee >(per_line print_line >> $irc_out) \
+              >(per_line handle_line >> $in) \
+              > /dev/null
+}
 
-# Kør klienten i baggrunden.
-touch $irc_out
-tail -f $in \
-    | ircloop \
-    | grep --line-buffered -E "^$channel" \
-    | gawk '{$1=$2=$3=""; print; fflush();}' \
-    | tee /dev/stderr \
-    | sed -u 's/^ *//' \
-    | while IFS='' read line; do
-    process_line "$line" >> "$in"
-    echo "$line" | fmt -75 | color_usermsg >> $irc_out
-done
+if [ "$IS_DEBUG" ]; then
+    # Få inddatalinjerne til at ligne at de er fra IRC, processér dem,
+    # og vis dem.
+    fake_irc() {
+        echo -e "#diku       : 01/01/01 00:00 <concieggs> $(cat)"
+    }
+    per_line fake_irc \
+        | process_text
+else
+    # Log på IRC og kør klienten uendeligt.
+    join_channel
+    tail -f $in \
+        | while true; do ircloop; done \
+        | while true; do process_text; done
+fi

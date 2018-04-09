@@ -32,6 +32,6 @@ top
 tail -n 1 -f $irc_out | while read line; do
     clear
     top
-    tail -n 20 $irc_out
+    tail -n 19 $irc_out
     bund
 done

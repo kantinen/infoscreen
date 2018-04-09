@@ -1,0 +1,119 @@
+<html>
+  <head>
+    <title>Så er der bus!</title>
+    <meta charset="UTF-8">
+    <style type="text/css">
+
+     html {
+     }
+
+     body {
+         width: 100%;
+         text-align: center;
+         font-family: "Comic Sans MS", "Comic Sans", cursive;
+
+     }
+
+     div {
+         margin: 0 auto;
+         width: 1900px;
+     }
+     table {
+         margin: 0 auto;
+     }
+     th {
+         text-align: left;
+     }
+     td {
+         padding-right: 100px;
+         font-weight: bolder;
+     }
+     tr {
+         font-size: 42pt;
+     }
+
+     h1 {
+         padding-top: 40px;
+         font-size: 50pt;
+     }
+
+     .yellow {
+         background-color: #fcff00;
+     }
+
+     .pink {
+         background-color: #f38d00;
+     }
+
+     .blue {
+         background-color: #57AF06;
+     }
+
+     html {
+         background-image: url(./city.jpg);
+     }
+  </style>
+  </head>
+  <body>
+      <div>
+      <h1>Afgange fra Universitetsparken (Nørre Allé)</h1>
+      <table>
+          <thead>
+              <tr>
+                  <th>Bus</th>
+                  <th>Mod</th>
+                  <th>Klokken</th>
+              </tr>
+          </thead>
+          <tbody>
+          </tbody>
+      </table>
+      </div>
+   <script>
+/*   var bonMots = [ "Fandme sgu - Bussen kommer nu!"
+                 , "Vær ikke en rus - nå din bus!"
+                 , "Hvis du vil hjemaf skal du afsted a'"
+                 , "Bare rolig, der er flere busser på vej!"
+                 , "Husk at gå ned til busstoppestedet i god tid :)"
+   ];
+   var bonMot = bonMots.sort(function(){return 0.5 - Math.random()})[0];
+   document.getElementsByTagName('h1')[0].innerHTML = bonMot;
+*/
+
+     var myXML, parser, departureTree;
+    var classes = ["pink", "blue", "yellow"];
+     function buildPage(dTree){
+         var keys = ["name", "finalStop", "time",];
+         var tbody = document.getElementsByTagName('tbody')[0];
+         var tenDepartures = dTree.getElementsByTagName('Departure');
+         tenDepartures= Array.prototype.slice.call( tenDepartures ).slice(0,10);
+         tenDepartures.forEach(function(departure, i){
+
+             var row = document.createElement('tr');
+             row.className = classes[i % 3];
+             keys.forEach(function(key){
+                 var cell = document.createElement('td');
+                 cell.innerHTML = departure.getAttribute(key);
+                 row.appendChild(cell);
+
+             });
+             tbody.appendChild(row);
+         });
+     }
+
+     var request = new XMLHttpRequest();
+     request.open("GET",
+                  "file:///tmp/busplan",
+                  true);
+     request.onreadystatechange = function(myXML){
+         if (request.readyState == 4) {
+             if (request.status == 200 || request.status == 0) {
+                 myXML = request.responseXML;
+                 buildPage(myXML);
+             }
+         }
+     }
+     request.send();
+    </script>
+  </body>
+</html>

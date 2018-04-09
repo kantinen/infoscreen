@@ -14,6 +14,19 @@ Se også vores repo for kantinens `cokepc`-maskine:
 Maskinen har en opløsning på 1920x1080, så design efter det.
 
 
+Bidrag!
+-------
+
+Vil du lægge noget på infoskærmen?  Det tager ikke så lang tid:
+
+  1. Opret en bruger på GitHub.
+  2. Fork dette repo til din egen bruger (der er en knap øverst i højre hjørne).
+  3. Commit og push dine ændringer til din fork.  Accepterede filformater står
+     beskrevet i <https://github.com/datalogisk-kantineforening/kantinfo>.
+  4. Lav et pull request til infoscreen-repoet med indholdet af din fork (der er
+     en knap "New pull request" på denne side).
+
+
 Opsætning
 ---------
 
@@ -25,7 +38,7 @@ ind på maskinen ved at ssh'e til `odroid@diku.kantinen.org` og derfra ssh'e
 videre til `infoscreen` (eftersom K@ntinen har mere end én Odroid).  Niels skal
 have ens offentlige nøgle før dette virker.  Løsenet på maskinen for
 `odroid`-brugeren er bare `odroid`.  Hvis man vil automatisere denne loggen ind,
-kan man indtaste følgende i filen `.ssh/config` på din egen maskine:
+kan man indtaste følgende i filen `.ssh/config` på ens egen maskine:
 
 ```
 Host infoscreen
@@ -37,28 +50,36 @@ Host infoscreen
 Så kan man logge ind ved at køre `ssh infoscreen`.
 
 Når maskinen starter op, bliver brugeren `odroid` logget ind i en session, der
-kører scriptet `.xinitrc`.  Vi har vedhæftet vores `.xinitrc` i dette repo; se
-filen `xinitrc` (den er symlinket på odroiden).
+kører scriptet `.xsessionrc`.  Vi har vedhæftet vores `.xsessionrc` i dette
+repo; se filen `xsessionrc` i `system`-mappen (den er symlinket på odroiden).
 
 Dette scripts primære ansvar er at starte en `tmux`-session der kører
 infoskærmsscriptet, samt starte en enkel window manager.  Hvis du vil tilføje
 andre baggrundsprocesser og deslige, så start dem her.
 
-Et cronjob (`sudo crontab -e`) sørger for at genstarte maskinen hver morgen
-klokken 6.  Dette er for at sikre at der aldrig sniger sig noget ind i
-opsætningen der ikke kan overleve en genstart.
+Et cronjob (`sudo crontab -e`) sørger for at genstarte maskinen en gang om ugen.
+Dette er for at sikre at der aldrig sniger sig noget ind i opsætningen der ikke
+kan overleve en genstart.
+
+Filen `/usr/share/lightdm/lightdm.conf.d/60-lightdm-gtk-greeter.conf` logger
+brugeren odroid ind og slår skærmenstrømbesparingsmekanismen fra, hvis denne af
+en grund skulle være blevet slået til.  Vi har vedhæftet filen i repoet i
+`system`-mappen.
 
 
 Afhængigheder
 -------------
 
-Vores `xinitrc` afhænger af disse programmer:
+Vores `xsessionrc` afhænger af disse programmer:
 
   + `matchbox`: Simpel window manager
   + `xdotool`: Musemarkør-skjuler (mm.)
-  + `tmux`: Ligesom screen, men fra BSD
-  
-For at køre vores IRC-viser-slide kræves også:
+  + `tmux`: Ligesom `screen`, men fra BSD
+
+Ekstra afhængigheder der kræves af diverse slides:
 
   + `sic`: Simpel IRC-klient
   + `toilet`: Tekst-formatterings-program
+  + `lxterminal` med fontstørrelse 33; vi har vedhæftet en `lxterminal.conf` i
+    dette repo i `system`-mappen som skal lægges i `~/.config/lxterminal/`
+  + skrifttyperne Gentium og Comfortaa
