@@ -30,10 +30,10 @@ body {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 10px;
   text-transform: uppercase;
-  animation: 2s infinite alternate updown;
+  -webkit-animation: 2s infinite alternate updown;
 }
 
-@keyframes updown {
+@-webkit-keyframes updown {
     0% {
         top: 0;
     }
@@ -46,10 +46,10 @@ body {
   position: absolute;
   top: -327px;
   left: 0px;
-  animation: planecrash 10s 5s 1 normal forwards linear;
+  -webkit-animation: planecrash 10s 5s 1 normal forwards linear;
 }
 
-@keyframes planecrash {
+@-webkit-keyframes planecrash {
     0% {
         top: -327px;
         left: 0px;
