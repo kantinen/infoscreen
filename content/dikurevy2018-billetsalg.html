@@ -69,8 +69,9 @@ body {
     <p id="tekst">DIKUrevy 2018 - 1.-2. juni<br/><span id="inner_text"</p> 
     <script>
         var d = new Date();
-        var end = new Date(2018,6,2,19,30,00);
-        var billetsalg_start = new Date(2018,5,8,17,00,00);
+        // Måneder er 0-indekseret
+        var end = new Date(2018,5,2,19,30,00);
+        var billetsalg_start = new Date(2018,4,8,17,00,00);
         if (d > end) {
             $('#inner_text').text('Vi ses til næste år!');
         } else if (d > billetsalg_start) {
