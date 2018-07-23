@@ -34,13 +34,13 @@
          }
         </style>
         <script>
-         var HANDOUT = new Date("2018-2-5");
+         var HANDOUT = new Date("2018-2-5T00:00:00Z");
          //         var GOOD_STUDENT = new Date(2017, 0, 16, 5, 0);
-         var DEADLINE = new Date("2018-8-6T23:59:00");
+         var DEADLINE = new Date("2018-8-6T23:59:00Z");
          showTime();
 
          function localTimeNow() {
-             return Date.now() //- DEADLINE.getTimezoneOffset() * 60 * 1000;
+             return Date.now() - DEADLINE.getTimezoneOffset() * 60 * 1000;
          }
 
          function timeLeft() {
