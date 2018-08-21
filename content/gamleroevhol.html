@@ -15,19 +15,25 @@ body {
 }
 
 #ansigt {
+  height: 500px;
+  width: auto;
   position: absolute;
-  top: calc(50% - calc(283px / 2));
+  top: 300px;
+  left: 350px;
   -webkit-animation:spin 3s linear infinite;
   -moz-animation:spin 3s linear infinite;
-  animation:spin 3s linear infinite;left: calc(45% - 166px);
+  animation:spin 3s linear infinite;
 }
 
 #tekst {
   position: absolute;
   top: 50%;
-  left: calc(45% + 166px);
+  left: 1030px;
 }
 
+h1 {
+  font-size: 3em;
+}
 
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
