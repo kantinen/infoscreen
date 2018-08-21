@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+}
+
+#ansigt {
+  position: absolute;
+  top: calc(50% - calc(283px / 2));
+  -webkit-animation:spin 3s linear infinite;
+  -moz-animation:spin 3s linear infinite;
+  animation:spin 3s linear infinite;left: calc(45% - 166px);
+}
+
+#tekst {
+  position: absolute;
+  top: 50%;
+  left: calc(45% + 166px);
+}
+
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+</style>
+  </head>
+  <body>
+    <img id="ansigt"></img>
+    <h1 id="tekst">DNUR!!</h1>
+  </body>
+<script>
+var ansigter = ["res/gamleroevhuller/ansigt1.png",
+                "res/gamleroevhuller/ansigt2.png",
+                "res/gamleroevhuller/ansigt3.png"]
+var tekster = ["Har DU husket at DNUR!?",
+               "SKRU NED FOR MUSIKKEN!!!",
+               "$$ HUSK AT BETALE $$"];
+
+var i = Math.floor(Math.random() * ansigter.length); 
+
+document.getElementById("ansigt").src = ansigter[i];
+document.getElementById("tekst").innerHTML = tekster[i];
+</script>
+</html>
