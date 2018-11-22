@@ -46,14 +46,16 @@ h1 {
     <h1 id="tekst">DNUR!!</h1>
   </body>
 <script>
-var ansigter = ["res/gamleroevhuller/ansigt1.png",
+var ansigter = ["res/gamleroevhuller/ansigt0.png",
+                "res/gamleroevhuller/ansigt1.png",
                 "res/gamleroevhuller/ansigt2.png",
                 "res/gamleroevhuller/ansigt3.png"]
-var tekster = ["Har DU husket at DNUR!?",
+var tekster = ["Du må ikke sove i kantinen!",
+               "Har DU husket at DNUR!?",
                "SKRU NED FOR MUSIKKEN!!!",
                "$$ HUSK AT BETALE $$"];
 
-var i = Math.floor(Math.random() * ansigter.length); 
+var i = Math.floor(Math.random() * ansigter.length);
 
 document.getElementById("ansigt").src = ansigter[i];
 document.getElementById("tekst").innerHTML = tekster[i];

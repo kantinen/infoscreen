@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <title>DIKUrevy 2018 billetsalg</title>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <style type="text/css">
+body {
+  overflow: hidden;
+  margin: 0;
+}
+
+#plakat {
+  position: absolute;
+  left: 0;
+  width: 1920px;
+  height: 5430px;
+  z-index: -1;
+  background-image: url('res/DIKUrevy2018.jpg');
+  background-repeat: repeat-y;
+}
+
+#tekst {
+  position: absolute;
+  left: 0;
+  top: 300px;
+  width: 1900px;
+  text-align: center;
+  font-size: 75pt;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  text-transform: uppercase;
+  -webkit-animation: 2s infinite alternate updown;
+}
+
+@-webkit-keyframes updown {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: 500px;
+    }
+}
+
+#plane {
+  position: absolute;
+  top: -327px;
+  left: 0px;
+  -webkit-animation: planecrash 10s 5s 1 normal forwards linear;
+}
+
+@-webkit-keyframes planecrash {
+    0% {
+        top: -327px;
+        left: 0px;
+    }
+    100% {
+        top: 1410px;
+        left: 1400px;
+    }
+}
+    </style>
+  </head>
+  <body>
+
+    <img id="plane" src="res/DIKUrevy2018-fly.png">
+    <div id="plakat"></div>
+
+    <p id="tekst">DIKUrevy 2018 - 1.-2. juni<br/><span id="inner_text"</p> 
+    <script>
+        var d = new Date();
+        // Måneder er 0-indekseret
+        var end = new Date(2018,5,2,19,30,00);
+        var billetsalg_start = new Date(2018,4,8,17,00,00);
+        if (d > end) {
+            $('#inner_text').text('Vi ses til næste år!');
+        } else if (d > billetsalg_start) {
+            $('#inner_text').text('Billetter sælges i Kantinen i frokostpausen.');
+        } else {
+            $('#inner_text').html('Billetsalget starter <nobr>tirsdag d. 8. maj kl 17</nobr> på Caféen?!');
+        }
+    </script>
+  </body>
+</html>
