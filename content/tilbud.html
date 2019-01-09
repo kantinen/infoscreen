@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+    <style>
+      
+body {
+    background-color: black;
+    font-family: "Arial Black", Gadget, sans-serif;
+}
+
+#left {
+    width: 50%;
+    height:100%;
+    resize: vertical;
+    overflow: auto;
+    float: left
+}
+
+
+
+#kinder {
+    height: 700px;
+    width: 700px;
+    position: absolute;
+    transform: rotate(20deg);
+    top: 12%;
+    background-image: url(res/kinder.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}			      
+
+#right {
+    height: 100%;
+    width: 50%;
+    color: blue;
+    /* background-color: magenta; */
+    float:left;
+}
+
+#text {
+    position: absolute;
+    line-height: 100px;
+    left: 50%;
+    font-size: 60px;
+    top: 20%;
+    left: 40%;
+    text-shadow: 1px 1px white;
+} 
+
+     </style>
+  </head>
+  
+  <body style="background-color: black">
+
+    <div id="left">
+      
+      <div id="kinder" >
+
+
+      </div>
+    </div>
+    <div id="right">
+      <div id="text">
+	<p style="font-size: 50px;
+		  font-style: italic;
+		  text-decoration: underline;
+		  line-height: 45px;">Savner du også flere pingviner </br>i din hverdag?</p> </br>
+	5kr - Kan findes i køleskabet</br>
+	MobilePay: 44243</div>
+      </div>
+    
+
+  </body>
+
+  <script>
+    var i = 0;
+    const degs = ["-20", "20"]
+    const colors = ["red", "blue"]
+    function drejBillede() {
+	document.getElementById("kinder").style.transform = "rotate(" + degs[i] + "deg)";
+	i++;
+	{i == 2 ? i = 0 : null}
+    }
+    function skiftFarve() {
+	document.getElementById("right").style.color = colors[i];
+    }
+    setInterval(skiftFarve, 500);
+    setInterval(drejBillede, 500);
+
+  </script>
+</html>
