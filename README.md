@@ -35,7 +35,7 @@ Odroid, men en hvilken som helst datamat vil være okay.
 
 `infoscreen` er en Odroid som er monteret bag skærmen i kantinen.  Man kan logge
 ind på maskinen ved at ssh'e til `odroid@diku.kantinen.org` og derfra ssh'e
-videre til `infoscreen` (eftersom K@ntinen har mere end én Odroid).  Niels skal
+videre til `infoscreen` (eftersom K@ntinen har mere end én Odroid).  Kantinen skal
 have ens offentlige nøgle før dette virker.  Løsenet på maskinen for
 `odroid`-brugeren er bare `odroid`.  Hvis man vil automatisere denne loggen ind,
 kan man indtaste følgende i filen `.ssh/config` på ens egen maskine:

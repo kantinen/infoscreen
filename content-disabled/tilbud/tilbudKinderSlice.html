@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+    <style>
+
+body {
+    background-color: black;
+    font-family: "Arial Black", Gadget, sans-serif;
+}
+
+#left {
+    width: 100%;
+    height:50%;
+    resize: vertical;
+    overflow: auto;
+}
+
+
+
+#kinder {
+    height: 450px;
+    width: 90%;
+    position: absolute;
+    transform: rotate(5deg);
+    left: 10%;
+    top: 10%;
+    background-image: url(res/kinderslice.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#right {
+    height: 50%;
+    width: 100%;
+    color: purple;
+    /* background-color: magenta; */
+    float:left;
+}
+
+#text {
+    position: absolute;
+    line-height: 50px;
+    left: 50%;
+    font-size: 60px;
+    left: 10%;
+    top: 550px;
+    text-shadow: 1px 1px white;
+}
+
+     </style>
+  </head>
+
+  <body style="background-color: black">
+
+    <div id="left">
+
+      <div id="kinder" >
+
+
+      </div>
+    </div>
+    <div id="right">
+      <div id="text">
+	<p style="font-size: 50px;
+		  font-style: italic;
+		  text-decoration: underline;
+		  line-height: 70px;">En snitte om dagen</br> - Holder doktoren fra bagen!</p> </br>
+	8kr i kantinen </br >
+	MobilePay: 44243</div>
+      </div>
+
+
+  </body>
+
+  <script>
+    var i = 0;
+    const degs = ["-5", "5"]
+    const colors = ["orange", "purple"]
+    function drejBillede() {
+	document.getElementById("kinder").style.transform = "rotate(" + degs[i] + "deg)";
+	i++;
+	{i == 2 ? i = 0 : null}
+    }
+    function skiftFarve() {
+	document.getElementById("right").style.color = colors[i];
+    }
+    setInterval(skiftFarve, 200);
+    setInterval(drejBillede, 200);
+
+  </script>
+</html>

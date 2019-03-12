@@ -1,0 +1,159 @@
+<html>
+  <head>
+    <title>Kahoot</title>
+<style>
+* {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+#container {
+  width: 1920px;
+  height: 1080px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  display: grid;
+  grid-template-areas: "h t"
+                       "q q"
+                       "q q";
+  grid-template-columns: 80% 20%;
+}
+
+#answers{
+  grid-area: q;
+  display: inline-grid;
+  grid-template-areas: "qa qb"
+                       "qc qd";
+}
+
+.answer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#answer1 { grid-area: qa; }
+#answer2 { grid-area: qb; }
+#answer3 { grid-area: qc; }
+#answer4 { grid-area: qd; }
+
+#question {
+  grid-area: h;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 4px solid grey;
+}
+
+.correct {
+  background: #0f0;
+}
+
+#timer {
+  grid-area: t;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 4px solid grey;
+}
+
+h1 {
+  font-size: 120px;
+}
+h2 {
+  font-size: 80px;
+}
+</style>
+  </head>
+  <body>
+    <div id="container">
+      <h1 id="question">Loading</h1>
+      <h1 id="timer">10</h1>
+      <div id="answers">
+        <div class="answer"><h2 id="answer1">Loading</h2></div>
+        <div class="answer"><h2 id="answer2">Loading</h2></div>
+        <div class="answer"><h2 id="answer3">Loading</h2></div>
+        <div class="answer"><h2 id="answer4">Loading</h2></div>
+      </div>
+    </div>
+<script>
+const question = document.getElementById("question");
+const answerEls = [
+  document.getElementById("answer1"),
+  document.getElementById("answer2"),
+  document.getElementById("answer3"),
+  document.getElementById("answer4"),
+];
+const timer = document.getElementById("timer");
+const TIMETOANSWER = 10;
+
+let questions = [];
+
+const randomInteger = i => Math.floor((Math.random() * i));
+
+const shuffle = (arr, arrShfl) => {
+  if (arr.length === 0) {
+    return arrShfl;
+  } else {
+    const newShfl =
+      arrShfl.concat(arr.splice(randomInteger(arr.length), 1));
+    return shuffle(arr, newShfl, length);
+  }
+}
+
+const load = () => {
+  const q = questions[randomInteger(questions.length)];
+  const questionIdx = shuffle([0,1,2,3], []);
+
+  question.innerHTML = q.question;
+  answerEls.forEach((el, i) => {
+    el.innerHTML = q.answers[questionIdx[i]];
+  })
+
+  return [q, questionIdx];
+}
+
+const showCorrect = (q, questionIdx, i) => {
+  timer.innerHTML = (TIMETOANSWER - i).toString();
+  if (i < TIMETOANSWER) {
+    setTimeout(showCorrect, 1000, q, questionIdx, ++i);
+  } else {
+    q.correctAnswer.forEach(i => {
+      answerEls[questionIdx.indexOf(i)].parentElement.classList.add("correct");
+  });
+  }
+}
+
+const handleJson = json => {
+  let els = json.feed.entry;
+  for (let i = 6; i < els.length; i+= 6) {
+    let q = {}
+    try {
+    q = {
+      question: els[i].content["$t"],
+      correctAnswer: eval( "[" + els[i+1].content["$t"] + "]" ),
+      answers: [els[i+2].content["$t"], els[i+3].content["$t"], els[i+4].content["$t"], els[i+5].content["$t"]],
+    }
+    } catch (e) {
+      continue;
+    }
+    if (typeof(q.question) === "string" &&
+        q.correctAnswer instanceof Array &&
+        q.answers instanceof Array &&
+        q.correctAnswer.reduce((x,y) => !isNaN(y) && x, true)) {
+      questions.push(q);
+    }
+  }
+
+  const [q, questionIdx] = load();
+  showCorrect(q, questionIdx, 0);
+}
+
+// https://docs.google.com/spreadsheets/d/1Z83KQDqBV3xBzS2sDMeLI_dSioZlWkmGaVx_WjfhfAU/edit?usp=sharing
+window.onload = () => {
+  fetch("https://spreadsheets.google.com/feeds/cells/1Z83KQDqBV3xBzS2sDMeLI_dSioZlWkmGaVx_WjfhfAU/1/public/values?alt=json-in-script&callback=handleJson")
+    .then(x => x.text().then(x => eval(x)));
+}
+</script>
+  </body>
+</html>
