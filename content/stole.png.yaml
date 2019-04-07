@@ -1,0 +1,1 @@
+show_when: now.isoweekday() == 3 and now.hour > 17
