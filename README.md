@@ -30,6 +30,10 @@ Vil du lægge noget på infoskærmen?  Det tager ikke så lang tid:
 Opsætning
 ---------
 
+**OBS: Oplysningerne om hvordan inforskærmsmaskinen tilgås nedenfor er ikke
+længere tidssvarende. Kontakt @BeneCollyridam eller @truls for mere
+information**
+
 Infoskærmsmaskinen i kantinen (herefter bare kaldet `infoscreen`) køres på en
 Odroid, men en hvilken som helst datamat vil være okay.
 
