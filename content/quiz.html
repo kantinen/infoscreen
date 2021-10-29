@@ -1,6 +1,7 @@
 <html>
   <head>
     <title>Kahoot</title>
+    <script type="text/javascript" language="javascript" src="./res/quiz/questions.js"></script>
 <style>
 * {
   padding: 0;
@@ -87,8 +88,6 @@ const answerEls = [
 const timer = document.getElementById("timer");
 const TIMETOANSWER = 10;
 
-let questions = [];
-
 const randomInteger = i => Math.floor((Math.random() * i));
 
 const shuffle = (arr, arrShfl) => {
@@ -124,35 +123,9 @@ const showCorrect = (q, questionIdx, i) => {
   }
 }
 
-const handleJson = json => {
-  let els = json.feed.entry;
-  for (let i = 6; i < els.length; i+= 6) {
-    let q = {}
-    try {
-    q = {
-      question: els[i].content["$t"],
-      correctAnswer: eval( "[" + els[i+1].content["$t"] + "]" ),
-      answers: [els[i+2].content["$t"], els[i+3].content["$t"], els[i+4].content["$t"], els[i+5].content["$t"]],
-    }
-    } catch (e) {
-      continue;
-    }
-    if (typeof(q.question) === "string" &&
-        q.correctAnswer instanceof Array &&
-        q.answers instanceof Array &&
-        q.correctAnswer.reduce((x,y) => !isNaN(y) && x, true)) {
-      questions.push(q);
-    }
-  }
-
+window.onload = () => {
   const [q, questionIdx] = load();
   showCorrect(q, questionIdx, 0);
-}
-
-// https://docs.google.com/spreadsheets/d/1Z83KQDqBV3xBzS2sDMeLI_dSioZlWkmGaVx_WjfhfAU/edit?usp=sharing
-window.onload = () => {
-  fetch("https://spreadsheets.google.com/feeds/cells/1Z83KQDqBV3xBzS2sDMeLI_dSioZlWkmGaVx_WjfhfAU/1/public/values?alt=json-in-script&callback=handleJson")
-    .then(x => x.text().then(x => eval(x)));
 }
 </script>
   </body>
