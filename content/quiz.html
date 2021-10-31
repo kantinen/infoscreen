@@ -125,34 +125,33 @@ const showCorrect = (q, questionIdx, i) => {
 }
 
 const handleJson = json => {
-  let els = json.feed.entry;
-  for (let i = 6; i < els.length; i+= 6) {
-    let q = {}
+  let range = JSON.parse(json).valueRanges;
+  for (let i = 1; i <= range[0].values[0].length; i++) {
     try {
-    q = {
-      question: els[i].content["$t"],
-      correctAnswer: eval( "[" + els[i+1].content["$t"] + "]" ),
-      answers: [els[i+2].content["$t"], els[i+3].content["$t"], els[i+4].content["$t"], els[i+5].content["$t"]],
-    }
-    } catch (e) {
-      continue;
-    }
-    if (typeof(q.question) === "string" &&
+      let q = {
+        question: range[0].values[0][i],
+        correctAnswer: range[1].values[0][i].split(",").map(x => Number(x)),
+        answers: [range[2].values[0][i], range[3].values[0][i], range[4].values[0][i], range[5].values[0][i]]
+      }
+      if (typeof(q.question) === "string" &&
         q.correctAnswer instanceof Array &&
         q.answers instanceof Array &&
         q.correctAnswer.reduce((x,y) => !isNaN(y) && x, true)) {
-      questions.push(q);
+          questions.push(q);
+        }
+    }
+    catch(e) {
+        continue;
     }
   }
-
   const [q, questionIdx] = load();
   showCorrect(q, questionIdx, 0);
 }
 
-// https://docs.google.com/spreadsheets/d/1Z83KQDqBV3xBzS2sDMeLI_dSioZlWkmGaVx_WjfhfAU/edit?usp=sharing
+// https://docs.google.com/spreadsheets/d/1iH8BwyGJXnSjHuWmq6Bkx0PqT6TWhodrzWBQFrD6a4Y/edit?usp=sharing
 window.onload = () => {
-  fetch("https://spreadsheets.google.com/feeds/cells/1Z83KQDqBV3xBzS2sDMeLI_dSioZlWkmGaVx_WjfhfAU/1/public/values?alt=json-in-script&callback=handleJson")
-    .then(x => x.text().then(x => eval(x)));
+  fetch("https://content-sheets.googleapis.com/v4/spreadsheets/1iH8BwyGJXnSjHuWmq6Bkx0PqT6TWhodrzWBQFrD6a4Y/values:batchGet?majorDimension=COLUMNS&ranges=A%3AA&ranges=B%3AB&ranges=C%3AC&ranges=D%3AD&ranges=E%3AE&ranges=F%3AF&key=AIzaSyB4OtGDS9Vds_enWg0Clv206r_bYoRKkuY")
+    .then(x => x.text().then(x => handleJson(x)));
 }
 </script>
   </body>
