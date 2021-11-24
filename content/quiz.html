@@ -148,9 +148,9 @@ const handleJson = json => {
   showCorrect(q, questionIdx, 0);
 }
 
-// https://docs.google.com/spreadsheets/d/1iH8BwyGJXnSjHuWmq6Bkx0PqT6TWhodrzWBQFrD6a4Y/edit?usp=sharing
+// https://docs.google.com/spreadsheets/d/1Wf4Jm5_ZufQ2eCy9z5NfJSuyIy2mQlNdsagyifdjjU0/edit?usp=sharing
 window.onload = () => {
-  fetch("https://content-sheets.googleapis.com/v4/spreadsheets/1iH8BwyGJXnSjHuWmq6Bkx0PqT6TWhodrzWBQFrD6a4Y/values:batchGet?majorDimension=COLUMNS&ranges=A%3AA&ranges=B%3AB&ranges=C%3AC&ranges=D%3AD&ranges=E%3AE&ranges=F%3AF&key=AIzaSyB4OtGDS9Vds_enWg0Clv206r_bYoRKkuY")
+  fetch("https://content-sheets.googleapis.com/v4/spreadsheets/1Wf4Jm5_ZufQ2eCy9z5NfJSuyIy2mQlNdsagyifdjjU0/values:batchGet/?majorDimension=COLUMNS&ranges=A%3AA&ranges=B%3AB&ranges=C%3AC&ranges=D%3AD&ranges=E%3AE&ranges=F%3AF&key=AIzaSyA1KVjYYq2NO0U6SyqgOr-n1JhRTXcOvUM")
     .then(x => x.text().then(x => handleJson(x)));
 }
 </script>
