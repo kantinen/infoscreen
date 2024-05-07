@@ -1,0 +1,2 @@
+duration: 30
+show_when: now.isoweekday() in (1, 2, 3)
