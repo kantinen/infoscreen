@@ -51,26 +51,26 @@ function build_page() {
         .text(' sekunder');
 
     var researchers = [
-        'Aasa Feragen',
         'Andrzej Filinski',
         'Christian Igel',
         'Cosmin Eugen Oancea',
         'Fritz Henglein',
         'Jakob Grue Simonsen',
+        'Jon Sporring',
         'Jørgen Bansler',
-        'Jyrki Katajainen',
         'Kasper Hornbæk',
         'Ken Friis Larsen',
         'Kenny Erleben',
-        'Marcos António Vaz Salles',
         'Martin Elsman',
-        'Mikkel Rønne Jakobsen',
+        'Michael Kirkedal Thomsen',
         'Mikkel Thorup',
         'Pernille Bjørn',
-        'Sebastian Boring',
+        'Philippe Bonnet',
+        'Stefan Sommer',
         'Stephen Alstrup',
         'Sune Darkner',
-        'Torben Ægidius Mogensen'
+        'Torben Ægidius Mogensen',
+        'Valkyrie Savage'
     ];
     var researcher = researchers[Math.floor(Math.random() * researchers.length)];
 
