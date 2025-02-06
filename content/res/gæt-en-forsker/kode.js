@@ -56,16 +56,21 @@ function build_page() {
         'Cosmin Eugen Oancea',
         'Fritz Henglein',
         'Jakob Grue Simonsen',
+        'Jon Sporring',
         'Jørgen Bansler',
         'Kasper Hornbæk',
         'Ken Friis Larsen',
         'Kenny Erleben',
         'Martin Elsman',
+        'Michael Kirkedal Thomsen',
         'Mikkel Thorup',
         'Pernille Bjørn',
+        'Philippe Bonnet',
+        'Stefan Sommer',
         'Stephen Alstrup',
         'Sune Darkner',
-        'Torben Ægidius Mogensen'
+        'Torben Ægidius Mogensen',
+        'Valkyrie Savage'
     ];
     var researcher = researchers[Math.floor(Math.random() * researchers.length)];
 
