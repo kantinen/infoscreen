@@ -52,9 +52,11 @@ function build_page() {
 
     var researchers = [
         'Andrzej Filinski',
+        'Boris Düdder',
         'Christian Igel',
         'Cosmin Eugen Oancea',
         'Fritz Henglein',
+        'Ivan Luiz Picoli',
         'Jakob Grue Simonsen',
         'Jon Sporring',
         'Jørgen Bansler',
@@ -66,6 +68,7 @@ function build_page() {
         'Mikkel Thorup',
         'Pernille Bjørn',
         'Philippe Bonnet',
+        'Raghavendra Selvan',
         'Stefan Sommer',
         'Stephen Alstrup',
         'Sune Darkner',
