@@ -51,23 +51,18 @@ function build_page() {
         .text(' sekunder');
 
     var researchers = [
-        'Aasa Feragen',
         'Andrzej Filinski',
         'Christian Igel',
         'Cosmin Eugen Oancea',
         'Fritz Henglein',
         'Jakob Grue Simonsen',
         'Jørgen Bansler',
-        'Jyrki Katajainen',
         'Kasper Hornbæk',
         'Ken Friis Larsen',
         'Kenny Erleben',
-        'Marcos António Vaz Salles',
         'Martin Elsman',
-        'Mikkel Rønne Jakobsen',
         'Mikkel Thorup',
         'Pernille Bjørn',
-        'Sebastian Boring',
         'Stephen Alstrup',
         'Sune Darkner',
         'Torben Ægidius Mogensen'
