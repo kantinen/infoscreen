@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Coding Pirates DIKU</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+body {
+  overflow: hidden;
+  margin: 0;
+  background: url('res/codingpiratesdiku.png');
+}
+
+#cat {
+  position: absolute;
+  left: 0;
+  top: 10%;
+  width: 256px;
+  margin-left: -128px;
+  margin-top: -128px;
+  z-index: -1;
+  -webkit-animation: cat 4s infinite;
+}
+
+@-webkit-keyframes cat {
+  0% {
+    -webkit-transform: rotate(0deg) scale(1, 1) translate(0px, 0px));
+  }
+  50% {
+    -webkit-transform: rotate(20deg) scale(1.2, 1.2) translate(920px, 100px);
+  }
+  100% {
+    -webkit-transform: rotate(0deg) scale(1.5, 1.5) translate(1520px, 300px);
+  }
+}
+    </style>
+  </head>
+  <body>
+
+    <img src="res/flying-scratch-cat.svg"
+         alt="Flyvende Scratch-kat"
+         id="cat" />
+
+  </body>
+</html>
