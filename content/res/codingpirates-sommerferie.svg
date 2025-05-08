@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="150mm"
+   viewBox="0 0 210 150"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="codingpirates-sommerferie.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.78127806"
+     inkscape:cx="397.42573"
+     inkscape:cy="561.25984"
+     inkscape:window-width="1920"
+     inkscape:window-height="1080"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       sodipodi:type="star"
+       style="fill:#ffff00;stroke-width:249.693;-inkscape-stroke:none"
+       id="path1"
+       inkscape:flatsided="false"
+       sodipodi:sides="14"
+       sodipodi:cx="146.97604"
+       sodipodi:cy="59.264538"
+       sodipodi:r1="81.542633"
+       sodipodi:r2="52.884369"
+       sodipodi:arg1="2.6389314"
+       sodipodi:arg2="2.8633309"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M 75.519942,98.54846 96.125906,73.791064 65.551666,63.654488 94.858829,50.289438 71.710486,27.891033 103.91421,28.56544 92.776573,-1.6585149 121.49851,12.921775 l 3.07902,-32.06328 19.55142,25.598368 16.68584,-27.55208 6.5085,31.546375 26.98782,-17.5838518 -7.8235,31.2462358 31.94454,-4.132927 -20.60597,24.757397 30.57424,10.136575 -29.30716,13.365051 23.14834,22.398405 -32.20372,-0.674407 11.13763,30.223954 -28.72193,-14.58029 -3.07902,32.06328 -19.55142,-25.59837 -16.68584,27.55208 -6.5085,-31.54637 -26.987824,17.58385 7.823504,-31.246237 z"
+       transform="matrix(1.2604394,0,0,0.89464424,-80.28776,22.393505)" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;white-space:pre;inline-size:99.4554;stroke-width:0.264583"
+       x="71.794754"
+       y="86.695557"
+       id="text2"
+       transform="matrix(1.2466362,0,0,1.2466362,17.296046,-53.350407)"><tspan
+         x="71.794754"
+         y="86.695557"
+         id="tspan3"><tspan
+           style="font-weight:bold;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono Bold'"
+           id="tspan1">Vi er på</tspan><tspan
+           y="86.695557"
+           id="tspan4"> </tspan></tspan><tspan
+         x="71.794754"
+         y="99.924683"
+         id="tspan6"><tspan
+           style="font-weight:bold;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono Bold'"
+           id="tspan5">sommerferie!
+</tspan></tspan><tspan
+         x="71.794754"
+         y="113.15381"
+         id="tspan8"><tspan
+           style="font-weight:bold;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono Bold'"
+           id="tspan7">Vi er tilbage i</tspan><tspan
+           y="113.15381"
+           id="tspan9"> </tspan></tspan><tspan
+         x="71.794754"
+         y="126.38294"
+         id="tspan11"><tspan
+           style="font-weight:bold;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono Bold'"
+           id="tspan10">september</tspan></tspan></text>
+  </g>
+</svg>
