@@ -7,7 +7,7 @@
 body {
   overflow: hidden;
   margin: 0;
-  background: url('res/codingpiratesdiku.png');
+  background-image: url('res/codingpiratesdiku.png');
 }
 
 #cat {
@@ -17,13 +17,20 @@ body {
   width: 256px;
   margin-left: -128px;
   margin-top: -128px;
-  z-index: -1;
   -webkit-animation: cat 4s infinite;
+  z-index: 2;
+}
+
+#sommerferie {
+  position: absolute;
+  right: 35%;
+  top: 10%;
+  width: 456px;
 }
 
 @-webkit-keyframes cat {
   0% {
-    -webkit-transform: rotate(0deg) scale(1, 1) translate(0px, 0px));
+    -webkit-transform: rotate(0deg) scale(1, 1) translate(0px, 0px);
   }
   50% {
     -webkit-transform: rotate(20deg) scale(1.2, 1.2) translate(920px, 100px);
@@ -39,6 +46,10 @@ body {
     <img src="res/flying-scratch-cat.svg"
          alt="Flyvende Scratch-kat"
          id="cat" />
+
+    <img src="res/codingpirates-sommerferie.svg"
+         alt="Coding Pirates er på sommerferie"
+         id="sommerferie" />
 
   </body>
 </html>
