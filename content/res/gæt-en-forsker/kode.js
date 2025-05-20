@@ -51,11 +51,14 @@ function build_page() {
         .text(' sekunder');
 
     var researchers = [
+        'Amir Yehudayoff',
         'Andrzej Filinski',
+        'Athina Panotopoulou',
         'Barry Alan Brown',
         'Boris Düdder',
         'Christian Igel',
         'Cosmin Eugen Oancea',
+        'Daniel Spikol',
         'Fritz Henglein',
         'Ivan Luiz Picoli',
         'Jakob Grue Simonsen',
@@ -68,6 +71,7 @@ function build_page() {
         'Kenny Erleben',
         'Maria Maistro',
         'Martin Elsman',
+        'Melanie Ganz-Benjaminsen',
         'Michael Kirkedal Thomsen',
         'Mikkel Thorup',
         'Mikkel Vind Abrahamsen',
